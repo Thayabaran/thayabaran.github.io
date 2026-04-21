@@ -27,10 +27,4 @@ My industry experience spans clinical-trial speech technology (Redenlab), ASR re
 
 I have been an invited speaker at the IAAM Summit and appeared on Swiss national television (SRF Einstein) and radio to explain deepfake voice technology to the general public.
 
-## Selected Metrics
-
-| Citations | h-index | i10-index |
-|:---------:|:-------:|:---------:|
-| 121       | 7       | 5         |
-
 Full publication list on [Google Scholar](https://scholar.google.com/citations?user=bD7qkMkAAAAJ&hl=en).
