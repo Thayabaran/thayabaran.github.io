@@ -1,22 +1,22 @@
 var addressPoints = [
   [
-    "Talk 2 on Relevant Topic in Your Field<br />London School of Testing; London, UK",
-    51.4893335,
-    -0.14405508452768728
+    "Invited Talk \u2014 Speech A.I. and Digital Biomarkers<br />IAAM Summit; Melbourne, Australia",
+    -37.8142454,
+    144.9631732
   ],
   [
-    "Tutorial 1 on Relevant Topic in Your Field<br />UC-Berkeley Institute for Testing Science; Berkeley, CA, USA",
-    37.8708393,
-    -122.272863
+    "The Nifty Lie, Part 3: Deepfakes \u2014 Dangerous / Overrated?<br />SRF Radio Podcast; Zurich, Switzerland",
+    47.3744489,
+    8.5410422
   ],
   [
-    "Conference Proceeding talk 3 on Relevant Topic in Your Field<br />Testing Institute of America 2014 Annual Conference; Los Angeles, CA, USA",
-    34.0536909,
-    -118.242766
+    "Voice Recognition and Artificial Intelligence \u2014 Will Others Soon Sound Like Us?<br />Einstein TV Show, SRF TV; Zurich, Switzerland",
+    47.3744489,
+    8.5410422
   ],
   [
-    "Talk 1 on Relevant Topic in Your Field<br />UC San Francisco, Department of Testing; San Francisco, CA, USA",
-    37.7792588,
-    -122.4193286
+    "Invited Talk \u2014 Speech A.I. and Digital Biomarkers<br />IAAM Summit; Sydney, Australia",
+    -33.8698439,
+    151.2082848
   ]
 ];
