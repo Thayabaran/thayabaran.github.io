@@ -31,10 +31,8 @@ body{
 /* ── HERO ── */
 .hero{
   min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:0 56px 72px;
+  display:grid;
+  grid-template-columns:1fr 38%;
   position:relative;
   overflow:hidden;
 }
@@ -42,7 +40,37 @@ body{
   content:'';
   position:absolute;
   inset:0;
-  background:radial-gradient(ellipse 70% 55% at 5% 95%,rgba(200,169,122,.09) 0%,transparent 60%);
+  background:radial-gradient(ellipse 60% 50% at 5% 95%,rgba(200,169,122,.1) 0%,transparent 55%);
+  pointer-events:none;
+  z-index:1;
+}
+.hero-text{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:0 56px 72px;
+  position:relative;
+  z-index:2;
+}
+.hero-portrait{
+  position:relative;
+  overflow:hidden;
+}
+.hero-portrait img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  filter:grayscale(8%) brightness(0.92);
+}
+.hero-portrait::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to right,var(--bg) 0%,transparent 28%),
+             linear-gradient(to top,var(--bg) 0%,transparent 15%);
+  z-index:1;
   pointer-events:none;
 }
 .hero-eyebrow{
@@ -314,9 +342,13 @@ footer{
 
 /* ── RESPONSIVE ── */
 @media(max-width:720px){
-  .hero,.tab-bar,footer{padding-left:24px;padding-right:24px}
+  .hero{grid-template-columns:1fr;grid-template-rows:55vw 1fr}
+  .hero-portrait{grid-row:1;grid-column:1}
+  .hero-portrait::before{background:linear-gradient(to top,var(--bg) 0%,transparent 40%)}
+  .hero-text{grid-row:2;grid-column:1;padding:0 24px 56px}
+  .tab-bar,footer{padding-left:24px;padding-right:24px}
   .content{padding:56px 24px 80px}
-  .hero-name{font-size:clamp(3rem,14vw,5rem)}
+  .hero-name{font-size:clamp(2.8rem,12vw,5rem)}
   .job-item,.edu-item,.media-item{grid-template-columns:1fr;gap:8px}
   .scroll-hint{display:none}
   .pub-stats{flex-wrap:wrap}
@@ -331,21 +363,26 @@ footer{
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <p class="hero-eyebrow">Applied A.I. Scientist · Melbourne, Australia</p>
-  <h1 class="hero-name">
-    <span class="line"><span class="line-inner">Thayabaran</span></span>
-    <span class="line"><span class="line-inner">Kathiresan<em style="font-style:italic;font-size:.52em;color:var(--muted);letter-spacing:0">, Ph.D.</em></span></span>
-  </h1>
-  <div class="hero-meta">
-    <a href="mailto:mail2thaya.k@gmail.com">mail2thaya.k@gmail.com</a>
-    <span class="sep">·</span>
-    <a href="tel:+61421435914">+61 421 435 914</a>
-    <span class="sep">·</span>
-    <a href="https://www.linkedin.com/in/thayabaran" target="_blank" rel="noopener">LinkedIn</a>
-    <span class="sep">·</span>
-    <a href="https://scholar.google.com/citations?user=bD7qkMkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+  <div class="hero-text">
+    <p class="hero-eyebrow">Applied A.I. Scientist · Melbourne, Australia</p>
+    <h1 class="hero-name">
+      <span class="line"><span class="line-inner">Thayabaran</span></span>
+      <span class="line"><span class="line-inner">Kathiresan<em style="font-style:italic;font-size:.52em;color:var(--muted);letter-spacing:0">, Ph.D.</em></span></span>
+    </h1>
+    <div class="hero-meta">
+      <a href="mailto:mail2thaya.k@gmail.com">mail2thaya.k@gmail.com</a>
+      <span class="sep">·</span>
+      <a href="tel:+61421435914">+61 421 435 914</a>
+      <span class="sep">·</span>
+      <a href="https://www.linkedin.com/in/thayabaran" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="sep">·</span>
+      <a href="https://scholar.google.com/citations?user=bD7qkMkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+    </div>
+    <span class="scroll-hint">Scroll</span>
   </div>
-  <span class="scroll-hint">Scroll</span>
+  <div class="hero-portrait">
+    <img src="profile.jpg" alt="Thayabaran Kathiresan">
+  </div>
 </section>
 
 <!-- TAB BAR -->
