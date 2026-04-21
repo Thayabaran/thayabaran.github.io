@@ -4,625 +4,985 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thayabaran Kathiresan, Ph.D. — Applied A.I. Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#ffffff;
-    --ink:#1a1a1a;
-    --muted:#6b6b6b;
-    --accent:#0b4a6f;
-    --line:#e5e7eb;
-    --chip:#f3f4f6;
-    --chip-ink:#1f2937;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    color:var(--ink);
-    background:var(--bg);
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  .container{max-width:900px;margin:0 auto;padding:56px 28px 80px}
-  header{border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:36px}
-  h1{font-size:2.4rem;margin:0 0 4px;letter-spacing:-0.01em}
-  h1 .phd{font-size:1.2rem;color:var(--muted);font-weight:500;margin-left:6px}
-  .title{font-size:1.15rem;color:var(--accent);font-weight:500;margin:0 0 6px}
-  .location{color:var(--muted);margin:0 0 14px;font-size:0.95rem}
-  .contact{display:flex;flex-wrap:wrap;gap:14px 18px;font-size:0.92rem;align-items:center}
-  .contact a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
-  .contact a:hover{border-bottom-style:solid}
-  .contact .sep{color:var(--line)}
-  h2{
-    font-size:0.82rem;
-    text-transform:uppercase;
-    letter-spacing:0.12em;
-    color:var(--muted);
-    margin:44px 0 18px;
-    font-weight:600;
-  }
-  h2::after{
-    content:"";
-    display:block;
-    width:32px;
-    height:2px;
-    background:var(--accent);
-    margin-top:8px;
-  }
-  p.summary{font-size:1.02rem;color:#333;margin:0}
-  .job{margin:0 0 26px}
-  .company{font-weight:600;font-size:1.02rem;margin:0}
-  .company-meta{color:var(--muted);font-size:0.88rem;margin:0 0 10px}
-  .role{margin:10px 0 2px}
-  .role-title{font-weight:500}
-  .role-dates{color:var(--muted);font-size:0.88rem;margin-left:6px}
-  .role-loc{color:var(--muted);font-size:0.86rem;display:block;margin-bottom:4px}
-  .role-sub{color:var(--muted);font-size:0.88rem;display:block;margin-bottom:4px;font-style:italic}
-  .role ul{margin:6px 0 0;padding-left:20px;color:#333}
-  .role ul li{margin-bottom:3px;font-size:0.95rem}
-  .edu-item{margin-bottom:16px}
-  .edu-school{font-weight:600}
-  .edu-detail{color:var(--muted);font-size:0.92rem}
-  .edu-note{font-size:0.9rem;color:#444;margin-top:2px}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
-  .chips li{
-    background:var(--chip);
-    color:var(--chip-ink);
-    border-radius:999px;
-    padding:5px 13px;
-    font-size:0.86rem;
-  }
-  ul.plain{list-style:none;margin:0;padding:0}
-  ul.plain li{padding:7px 0;border-bottom:1px solid var(--line);font-size:0.95rem}
-  ul.plain li:last-child{border-bottom:none}
-  .skills-grid{display:grid;grid-template-columns:140px 1fr;gap:10px 16px;align-items:start}
-  .skills-grid .label{font-weight:600;font-size:0.92rem;color:#333;padding-top:4px}
-  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-  .pub{margin:0 0 16px;font-size:0.94rem;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start}
-  .pub-body{min-width:0}
-  .pub-title{font-weight:600}
-  .pub-authors{color:#444;margin-top:2px;font-size:0.9rem}
-  .pub-venue{color:var(--muted);font-style:italic;font-size:0.88rem;margin-top:2px}
-  .pub-doi{font-size:0.86rem;margin-top:2px}
-  .pub-doi a{color:var(--accent)}
-  .pub-cite{
-    white-space:nowrap;
-    background:var(--chip);
-    color:var(--chip-ink);
-    border-radius:6px;
-    padding:3px 10px;
-    font-size:0.82rem;
-    font-weight:500;
-  }
-  .pub-year{font-size:0.82rem;color:var(--muted);margin-left:6px}
-  .stats{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:22px;padding:14px 18px;background:var(--chip);border-radius:8px}
-  .stat-item{font-size:0.9rem}
-  .stat-num{font-size:1.3rem;font-weight:600;color:var(--accent);margin-right:6px}
-  .stat-label{color:var(--muted)}
-  .pub-group{margin-bottom:22px}
-  .pub-group-year{font-size:0.88rem;font-weight:600;color:var(--accent);margin:0 0 10px;letter-spacing:0.04em}
-  .media-item{margin-bottom:14px;font-size:0.95rem}
-  .media-title{font-weight:600}
-  .media-meta{color:var(--muted);font-size:0.88rem}
-  @media (max-width:640px){
-    .container{padding:36px 20px 60px}
-    h1{font-size:2rem}
-    .two-col{grid-template-columns:1fr;gap:0}
-    .skills-grid{grid-template-columns:1fr}
-    .skills-grid .label{padding-top:8px}
-  }
-  footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:0.82rem;text-align:center}
+:root {
+  --bg:     #0b0b0b;
+  --bg2:    #111;
+  --ink:    #f0e9dd;
+  --muted:  #7a7570;
+  --accent: #c8a97a;
+  --border: #1e1e1e;
+  --chip:   #141412;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:auto}
+body{
+  font-family:'DM Sans',-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:0 56px 72px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse 70% 55% at 5% 95%,rgba(200,169,122,.09) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  font-size:.75rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:22px;
+  opacity:0;
+}
+.hero-name{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:clamp(3.8rem,11vw,9.5rem);
+  line-height:.93;
+  letter-spacing:-.025em;
+  margin-bottom:44px;
+}
+.hero-name .line{display:block;overflow:hidden}
+.hero-name .line-inner{display:block;transform:translateY(110%)}
+.hero-meta{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px 0;
+  font-size:.87rem;
+  color:var(--muted);
+  opacity:0;
+}
+.hero-meta a{
+  color:var(--ink);
+  text-decoration:none;
+  border-bottom:1px solid #2a2a2a;
+  padding-bottom:1px;
+  transition:color .2s,border-color .2s;
+}
+.hero-meta a:hover{color:var(--accent);border-color:var(--accent)}
+.hero-meta .sep{margin:0 14px;color:#2a2a2a}
+.scroll-hint{
+  position:absolute;
+  bottom:28px;
+  right:56px;
+  font-size:.68rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+  writing-mode:vertical-rl;
+  opacity:0;
+}
+
+/* ── TAB BAR ── */
+.tab-bar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(11,11,11,.94);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  padding:0 56px;
+  display:flex;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.tab-bar::-webkit-scrollbar{display:none}
+.tab-btn{
+  font-family:'DM Sans',sans-serif;
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-weight:500;
+  color:var(--muted);
+  background:none;
+  border:none;
+  border-bottom:2px solid transparent;
+  padding:17px 18px 15px;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:color .2s,border-color .2s;
+}
+.tab-btn:hover{color:var(--ink)}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* ── CONTENT ── */
+.content{
+  max-width:980px;
+  margin:0 auto;
+  padding:80px 56px 120px;
+}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+.section-label{
+  font-size:.68rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:44px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── ABOUT ── */
+.summary-text{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(1.25rem,2.4vw,1.75rem);
+  line-height:1.55;
+  color:var(--ink);
+  max-width:820px;
+}
+
+/* ── EXPERIENCE ── */
+.job-item{
+  border-top:1px solid var(--border);
+  padding:40px 0;
+  display:grid;
+  grid-template-columns:190px 1fr;
+  gap:16px 44px;
+}
+.job-co{
+  font-size:.76rem;
+  font-weight:600;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  color:var(--accent);
+  padding-top:3px;
+  line-height:1.4;
+}
+.job-dept{font-size:.76rem;color:var(--muted);letter-spacing:0;text-transform:none;margin-top:4px}
+.role-block{margin-bottom:28px}
+.role-block:last-child{margin-bottom:0}
+.role-hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:5px}
+.role-title{font-size:1.02rem;font-weight:600;color:var(--ink)}
+.role-dates{font-size:.82rem;color:var(--muted)}
+.role-sub{font-size:.8rem;color:var(--muted);display:block;margin-bottom:8px;font-style:italic}
+.role ul{padding-left:16px}
+.role ul li{font-size:.9rem;color:#b0aaa2;margin-bottom:5px;line-height:1.55}
+
+/* ── EDUCATION ── */
+.edu-item{
+  border-top:1px solid var(--border);
+  padding:36px 0;
+  display:grid;
+  grid-template-columns:190px 1fr;
+  gap:16px 44px;
+}
+.edu-yr{font-size:.8rem;color:var(--accent);font-weight:500;padding-top:3px}
+.edu-school{font-size:1.02rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.edu-degree{font-size:.9rem;color:var(--muted);margin-bottom:6px}
+.edu-note{font-size:.84rem;color:#6a6560;line-height:1.55}
+
+/* ── SKILLS ── */
+.skills-block{margin-bottom:40px}
+.skills-lbl{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chips li{
+  background:var(--chip);
+  color:var(--ink);
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:6px 14px;
+  font-size:.83rem;
+  transition:border-color .2s,color .2s;
+  cursor:default;
+}
+.chips li:hover{border-color:var(--accent);color:var(--accent)}
+.divider{height:1px;background:var(--border);margin:44px 0}
+.lang-list{list-style:none}
+.lang-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
+  font-size:.93rem;
+}
+.lang-item:last-child{border-bottom:none}
+.lang-lvl{color:var(--muted);font-size:.83rem}
+
+/* ── RESEARCH ── */
+.pub-stats{
+  display:flex;
+  border:1px solid var(--border);
+  margin-bottom:52px;
+}
+.stat-box{
+  flex:1;
+  padding:24px 20px;
+  border-right:1px solid var(--border);
+  text-align:center;
+}
+.stat-box:last-child{border-right:none;display:flex;align-items:center;justify-content:center}
+.stat-num{
+  font-family:'DM Serif Display',serif;
+  font-size:2.6rem;
+  color:var(--accent);
+  line-height:1;
+  display:block;
+}
+.stat-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-top:6px;display:block}
+.scholar-link{
+  color:var(--accent);
+  font-size:.82rem;
+  text-decoration:none;
+  border-bottom:1px solid var(--border);
+  padding-bottom:2px;
+  transition:border-color .2s;
+}
+.scholar-link:hover{border-color:var(--accent)}
+.pub-yr-group{margin-bottom:44px}
+.pub-yr-label{
+  font-family:'DM Serif Display',serif;
+  font-size:1.7rem;
+  color:#242420;
+  border-top:1px solid var(--border);
+  padding-top:18px;
+  margin-bottom:20px;
+}
+.pub-item{
+  padding:18px 0;
+  border-bottom:1px solid var(--border);
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:14px;
+  align-items:start;
+}
+.pub-title{font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+.pub-authors{font-size:.83rem;color:var(--muted);margin-bottom:3px}
+.pub-venue{font-size:.81rem;color:#524e4a;font-style:italic}
+.pub-doi{margin-top:4px}
+.pub-doi a{font-size:.79rem;color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
+.pub-badge{
+  background:var(--chip);
+  border:1px solid var(--border);
+  color:var(--accent);
+  border-radius:4px;
+  padding:3px 10px;
+  font-size:.76rem;
+  font-weight:500;
+  white-space:nowrap;
+  align-self:start;
+}
+
+/* ── SPEAKING ── */
+.media-item{
+  border-top:1px solid var(--border);
+  padding:30px 0;
+  display:grid;
+  grid-template-columns:190px 1fr;
+  gap:16px 44px;
+}
+.media-yr{font-size:.8rem;color:var(--accent);padding-top:3px}
+.media-title{font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.media-meta{font-size:.83rem;color:var(--muted);margin-bottom:6px}
+.media-item ul{padding-left:16px;margin-top:6px}
+.media-item ul li{font-size:.88rem;color:#b0aaa2;margin-bottom:4px;line-height:1.5}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--border);
+  padding:22px 56px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.76rem;
+  color:var(--muted);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:720px){
+  .hero,.tab-bar,footer{padding-left:24px;padding-right:24px}
+  .content{padding:56px 24px 80px}
+  .hero-name{font-size:clamp(3rem,14vw,5rem)}
+  .job-item,.edu-item,.media-item{grid-template-columns:1fr;gap:8px}
+  .scroll-hint{display:none}
+  .pub-stats{flex-wrap:wrap}
+  .stat-box{flex:0 0 50%;border-bottom:1px solid var(--border)}
+  .stat-box:nth-child(2n){border-right:none}
+  .stat-box:last-child{flex:0 0 100%;border-bottom:none}
+  footer{flex-direction:column;gap:6px;text-align:center}
+}
 </style>
 </head>
 <body>
-<div class="container">
 
-  <header>
-    <h1>Thayabaran Kathiresan<span class="phd">, Ph.D.</span></h1>
-    <p class="title">Applied A.I. Scientist</p>
-    <p class="location">Melbourne, Victoria, Australia · Australian PR holder</p>
-    <div class="contact">
-      <a href="mailto:mail2thaya.k@gmail.com">mail2thaya.k@gmail.com</a>
-      <span class="sep">|</span>
-      <a href="tel:+61421435914">+61 421 435 914</a>
-      <span class="sep">|</span>
-      <a href="https://www.linkedin.com/in/thayabaran" target="_blank" rel="noopener">LinkedIn</a>
-      <span class="sep">|</span>
-      <a href="https://scholar.google.com/citations?user=bD7qkMkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-    </div>
-  </header>
+<!-- HERO -->
+<section class="hero" id="top">
+  <p class="hero-eyebrow">Applied A.I. Scientist · Melbourne, Australia</p>
+  <h1 class="hero-name">
+    <span class="line"><span class="line-inner">Thayabaran</span></span>
+    <span class="line"><span class="line-inner">Kathiresan<em style="font-style:italic;font-size:.52em;color:var(--muted);letter-spacing:0">, Ph.D.</em></span></span>
+  </h1>
+  <div class="hero-meta">
+    <a href="mailto:mail2thaya.k@gmail.com">mail2thaya.k@gmail.com</a>
+    <span class="sep">·</span>
+    <a href="tel:+61421435914">+61 421 435 914</a>
+    <span class="sep">·</span>
+    <a href="https://www.linkedin.com/in/thayabaran" target="_blank" rel="noopener">LinkedIn</a>
+    <span class="sep">·</span>
+    <a href="https://scholar.google.com/citations?user=bD7qkMkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+  </div>
+  <span class="scroll-hint">Scroll</span>
+</section>
 
-  <section>
-    <h2>Summary</h2>
-    <p class="summary">Artificial intelligence scientist with industrial and academic experience in developing machine learning algorithms and software for predictive analytics. Proven ability to lead teams in successfully delivering large-scale data processing projects. Passionate about working with data to discover and unlock new insights that can improve business performance. Proven experience in A.I.-based speech processing applications, forensics, digital health, NLP and data science.</p>
-  </section>
+<!-- TAB BAR -->
+<nav class="tab-bar" id="tab-bar">
+  <button class="tab-btn active" data-tab="about">About</button>
+  <button class="tab-btn" data-tab="experience">Experience</button>
+  <button class="tab-btn" data-tab="education">Education</button>
+  <button class="tab-btn" data-tab="skills">Skills</button>
+  <button class="tab-btn" data-tab="research">Research</button>
+  <button class="tab-btn" data-tab="speaking">Speaking</button>
+</nav>
 
-  <section>
-    <h2>Experience</h2>
+<!-- CONTENT -->
+<main class="content">
 
-    <div class="job">
-      <p class="company">Redenlab</p>
-      <div class="role">
-        <span class="role-title">Director of Speech Sciences</span>
-        <span class="role-dates">· May 2024 – Present</span>
-        <span class="role-sub">0.8 FTE · Melbourne, Australia</span>
-        <ul>
-          <li>Design digital biomarkers by defining methods to capture clinical outcomes using speech data collected from smartphones and Redenlab systems.</li>
-          <li>Develop remote patient-monitoring workflows and data processing pipelines — establishing processes, software, and infrastructure to handle speech and language data from clinical trials.</li>
-          <li>Deploy digital speech markers to clinical studies, generating algorithms for speech analysis to validate approaches and support decision-making.</li>
-        </ul>
-      </div>
-      <div class="role">
-        <span class="role-title">Senior Speech Data Scientist</span>
-        <span class="role-dates">· May 2023 – May 2024</span>
-        <span class="role-sub">0.8 FTE · Melbourne, Australia</span>
-        <ul>
-          <li>Designed, extracted, and analysed speech-based biomarkers related to neurological disorders.</li>
-          <li>Developed an automatic quality-control pipeline for speech-based clinical-trial recording and analysis.</li>
-          <li>Documented and communicated design work; implemented proposals aligning R&amp;D with industry standards.</li>
-        </ul>
-      </div>
-    </div>
+  <!-- ABOUT -->
+  <div class="tab-panel active" data-tab="about">
+    <div class="section-label">About</div>
+    <p class="summary-text">Artificial intelligence scientist with industrial and academic experience in developing machine learning algorithms and software for predictive analytics. Proven ability to lead teams in successfully delivering large-scale data processing projects. Passionate about working with data to discover and unlock new insights that can improve business performance. Proven experience in A.I.-based speech processing applications, forensics, digital health, NLP and data science.</p>
+  </div>
 
-    <div class="job">
-      <p class="company">University of Melbourne</p>
-      <p class="company-meta">Department of Audiology and Speech Pathology</p>
-      <div class="role">
-        <span class="role-title">Senior Post-doctoral Researcher</span>
-        <span class="role-dates">· May 2023 – Present</span>
-        <span class="role-sub">0.2 FTE · Melbourne, Australia</span>
-        <ul>
-          <li>Studying speech and language function in people with progressive and acquired neurological conditions.</li>
-          <li>Supervising major honours and post-graduate research projects; communicating outcomes in scientific and academic forums.</li>
-        </ul>
-      </div>
-    </div>
+  <!-- EXPERIENCE -->
+  <div class="tab-panel" data-tab="experience">
+    <div class="section-label">Experience</div>
 
-    <div class="job">
-      <p class="company">Telepathy Labs</p>
-      <div class="role">
-        <span class="role-title">Senior Research Engineer</span>
-        <span class="role-dates">· Dec 2021 – Mar 2023</span>
-        <span class="role-loc">Zurich, Switzerland</span>
-        <ul>
-          <li>Worked in the ASR research team to develop, strengthen, and extend the core engine algorithm's quality and functionality for A.I.-based voice assistance using state-of-the-art techniques such as self-supervision, BERT, and Wav2Vec models.</li>
-          <li>Documented and communicated design work; aligned R&amp;D with industry standards.</li>
-          <li>Adopted agile development models to accommodate rapid customer-driven specification changes.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="job">
-      <p class="company">Zoi Meet</p>
-      <div class="role">
-        <span class="role-title">Artificial Intelligence Scientist</span>
-        <span class="role-dates">· Apr 2021 – Dec 2021</span>
-        <span class="role-loc">Freelance · Netherlands</span>
-        <ul>
-          <li>Developed privacy-compliant speech-technology algorithms for medical applications.</li>
-          <li>Implemented an algorithm prototype to de-identify speech signals while preserving vocal biomarkers for disease diagnosis.</li>
-          <li>Worked with the product team to implement service architecture and ML pipelines in AWS.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="job">
-      <p class="company">University of Zurich</p>
-      <p class="company-meta">Department of Computational Linguistics</p>
-      <div class="role">
-        <span class="role-title">Postdoctoral Researcher</span>
-        <span class="role-dates">· Nov 2019 – Dec 2021</span>
-        <span class="role-loc">Zurich, Switzerland</span>
-        <ul>
-          <li>Project: <em>"The dynamics of indexical information in speech and its role in speech communication and speaker recognition."</em></li>
-        </ul>
-      </div>
-      <div class="role">
-        <span class="role-title">Research Assistant</span>
-        <span class="role-dates">· Dec 2015 – Nov 2019</span>
-        <span class="role-loc">Zurich, Switzerland</span>
-        <ul>
-          <li>Project: <em>"Acoustic Characteristics of Voice in Music and Straight Theater."</em></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="job">
-      <p class="company">VoiceMed</p>
-      <div class="role">
-        <span class="role-title">Founding Member &amp; Senior Data Scientist</span>
-        <span class="role-dates">· Mar 2020 – Apr 2021</span>
-        <span class="role-loc">Remote · Luxembourg</span>
-        <ul>
-          <li>Led the R&amp;D team of data scientists and engineers from diverse data-processing backgrounds.</li>
-          <li>Designed a diagnostic tool for COVID-19 using vocal biomarkers from cough signals.</li>
-          <li>Designed a voice-based cough detector module using YOLO (object detection adapted for audio).</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="job">
-      <p class="company">Centre for Forensic Phonetics and Acoustics (CFPA)</p>
-      <div class="role">
-        <span class="role-title">Executive Board</span>
-        <span class="role-dates">· Sep 2019 – Apr 2022</span>
-        <ul>
-          <li>Handled forensic cases using automatic speaker verification methods.</li>
-          <li>Investigated the influence of speaking style and deepfake voices on modern automatic speaker recognition algorithms.</li>
-          <li>Performed signal pre-processing such as noise removal and speaker diarization (channel separation).</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="job">
-      <p class="company">ACTIONX</p>
-      <div class="role">
-        <span class="role-title">Data Science Advisor</span>
-        <span class="role-dates">· Mar 2021 – Nov 2021</span>
-        <span class="role-loc">Freelance</span>
-      </div>
-    </div>
-
-    <div class="job">
-      <p class="company">Fraunhofer IDMT</p>
-      <div class="role">
-        <span class="role-title">Master Thesis Student</span>
-        <span class="role-dates">· Jan 2015 – Jul 2015</span>
-        <span class="role-loc">Ilmenau, Germany</span>
-        <ul>
-          <li>Research and implementation of an automatic melody generation algorithm.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="job">
-      <p class="company">Tata Consultancy Services</p>
-      <div class="role">
-        <span class="role-title">System Engineer</span>
-        <span class="role-dates">· Feb 2011 – Aug 2013</span>
-        <span class="role-loc">Chennai, India</span>
-        <ul>
-          <li>Planned, implemented, installed, and maintained systems hardware, software applications, and IT infrastructure.</li>
-          <li>Managed project deployment lifecycle — requirements, research, design, testing, and live implementation.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Education</h2>
-    <div class="edu-item">
-      <div class="edu-school">University of Zurich</div>
-      <div class="edu-detail">Ph.D. <em>summa cum laude</em>, Computational Linguistics / Phonetics and Speech Sciences · 2015 – 2019</div>
-      <div class="edu-note">Funded by the Swiss National Science Foundation (SNSF) for 3 years; Forschungskredit Candoc Scholarship for 1 year.</div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-school">KTH Royal Institute of Technology</div>
-      <div class="edu-detail">M.Sc., Multimedia Signal Processing · Stockholm · 2014 – 2015</div>
-      <div class="edu-note">ERASMUS MUNDUS Master in Research in Information Technologies (MERIT).</div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-school">Universitat Politècnica de Catalunya (UPC)</div>
-      <div class="edu-detail">M.Sc., Multimedia Signal Processing · Barcelona · 2013 – 2014</div>
-      <div class="edu-note">ERASMUS MUNDUS Master in Research in Information Technologies (MERIT).</div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-school">Anna University, Chennai</div>
-      <div class="edu-detail">B.Eng., Electronics and Communications Engineering · 2006 – 2010</div>
-      <div class="edu-note">Filed a patent for final-year project <em>CODE 360 — Advanced Color Coding Technique for Object Identification</em> (3112/CHE/2010 A, Dec 2010).</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="label">Programming</div>
+    <div class="job-item">
+      <div><div class="job-co">Redenlab</div></div>
       <div>
-        <ul class="chips">
-          <li>Python</li><li>R</li><li>Kaldi</li><li>MATLAB</li><li>C++</li><li>Bash</li><li>PRAAT</li><li>SQL</li><li>LaTeX</li>
-        </ul>
-      </div>
-      <div class="label">ML Tools</div>
-      <div>
-        <ul class="chips">
-          <li>TensorFlow</li><li>PyTorch</li><li>Keras</li>
-        </ul>
-      </div>
-      <div class="label">Domain</div>
-      <div>
-        <ul class="chips">
-          <li>Digital Signal Processing</li><li>Speech Processing</li><li>Automatic Speech Recognition</li><li>Speaker Recognition</li><li>Speech Synthesis</li><li>NLP</li><li>Forensic Analysis</li><li>LLMOps</li><li>Generative AI</li>
-        </ul>
-      </div>
-      <div class="label">Soft Skills</div>
-      <div>
-        <ul class="chips">
-          <li>Leadership</li><li>Project Management</li><li>Technical Writing</li><li>Communication</li>
-        </ul>
+        <div class="role-block">
+          <div class="role-hd">
+            <span class="role-title">Director of Speech Sciences</span>
+            <span class="role-dates">May 2024 – Present</span>
+          </div>
+          <span class="role-sub">0.8 FTE · Melbourne, Australia</span>
+          <div class="role"><ul>
+            <li>Design digital biomarkers by defining methods to capture clinical outcomes using speech data collected from smartphones and Redenlab systems.</li>
+            <li>Develop remote patient-monitoring workflows and data processing pipelines — establishing processes, software, and infrastructure to handle speech and language data from clinical trials.</li>
+            <li>Deploy digital speech markers to clinical studies, generating algorithms for speech analysis to validate approaches and support decision-making.</li>
+          </ul></div>
+        </div>
+        <div class="role-block">
+          <div class="role-hd">
+            <span class="role-title">Senior Speech Data Scientist</span>
+            <span class="role-dates">May 2023 – May 2024</span>
+          </div>
+          <span class="role-sub">0.8 FTE · Melbourne, Australia</span>
+          <div class="role"><ul>
+            <li>Designed, extracted, and analysed speech-based biomarkers related to neurological disorders.</li>
+            <li>Developed an automatic quality-control pipeline for speech-based clinical-trial recording and analysis.</li>
+            <li>Documented and communicated design work; implemented proposals aligning R&amp;D with industry standards.</li>
+          </ul></div>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section>
-    <h2>Languages</h2>
-    <ul class="plain">
-      <li>Tamil <span style="color:var(--muted)">— Native / Bilingual</span></li>
-      <li>English <span style="color:var(--muted)">— Professional Working</span></li>
-      <li>German <span style="color:var(--muted)">— Elementary (A1)</span></li>
+    <div class="job-item">
+      <div>
+        <div class="job-co">University of Melbourne</div>
+        <div class="job-dept">Dept. of Audiology &amp; Speech Pathology</div>
+      </div>
+      <div>
+        <div class="role-block">
+          <div class="role-hd">
+            <span class="role-title">Senior Post-doctoral Researcher</span>
+            <span class="role-dates">May 2023 – Present</span>
+          </div>
+          <span class="role-sub">0.2 FTE · Melbourne, Australia</span>
+          <div class="role"><ul>
+            <li>Studying speech and language function in people with progressive and acquired neurological conditions.</li>
+            <li>Supervising major honours and post-graduate research projects; communicating outcomes in scientific and academic forums.</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="job-item">
+      <div><div class="job-co">Telepathy Labs</div></div>
+      <div>
+        <div class="role-block">
+          <div class="role-hd">
+            <span class="role-title">Senior Research Engineer</span>
+            <span class="role-dates">Dec 2021 – Mar 2023</span>
+          </div>
+          <span class="role-sub">Zurich, Switzerland</span>
+          <div class="role"><ul>
+            <li>Worked in the ASR research team to develop, strengthen, and extend the core engine algorithm's quality and functionality for A.I.-based voice assistance using state-of-the-art techniques such as self-supervision, BERT, and Wav2Vec models.</li>
+            <li>Documented and communicated design work; aligned R&amp;D with industry standards.</li>
+            <li>Adopted agile development models to accommodate rapid customer-driven specification changes.</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="job-item">
+      <div><div class="job-co">Zoi Meet</div></div>
+      <div>
+        <div class="role-block">
+          <div class="role-hd">
+            <span class="role-title">Artificial Intelligence Scientist</span>
+            <span class="role-dates">Apr 2021 – Dec 2021</span>
+          </div>
+          <span class="role-sub">Freelance · Netherlands</span>
+          <div class="role"><ul>
+            <li>Developed privacy-compliant speech-technology algorithms for medical applications.</li>
+            <li>Implemented an algorithm prototype to de-identify speech signals while preserving vocal biomarkers for disease diagnosis.</li>
+            <li>Worked with the product team to implement service architecture and ML pipelines in AWS.</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="job-item">
+      <div>
+        <div class="job-co">University of Zurich</div>
+        <div class="job-dept">Dept. of Computational Linguistics</div>
+      </div>
+      <div>
+        <div class="role-block">
+          <div class="role-hd">
+            <span class="role-title">Postdoctoral Researcher</span>
+            <span class="role-dates">Nov 2019 – Dec 2021</span>
+          </div>
+          <span class="role-sub">Zurich, Switzerland</span>
+          <div class="role"><ul>
+            <li>Project: <em>"The dynamics of indexical information in speech and its role in speech communication and speaker recognition."</em></li>
+          </ul></div>
+        </div>
+        <div class="role-block">
+          <div class="role-hd">
+            <span class="role-title">Research Assistant</span>
+            <span class="role-dates">Dec 2015 – Nov 2019</span>
+          </div>
+          <span class="role-sub">Zurich, Switzerland</span>
+          <div class="role"><ul>
+            <li>Project: <em>"Acoustic Characteristics of Voice in Music and Straight Theater."</em></li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="job-item">
+      <div><div class="job-co">VoiceMed</div></div>
+      <div>
+        <div class="role-block">
+          <div class="role-hd">
+            <span class="role-title">Founding Member &amp; Senior Data Scientist</span>
+            <span class="role-dates">Mar 2020 – Apr 2021</span>
+          </div>
+          <span class="role-sub">Remote · Luxembourg</span>
+          <div class="role"><ul>
+            <li>Led the R&amp;D team of data scientists and engineers from diverse data-processing backgrounds.</li>
+            <li>Designed a diagnostic tool for COVID-19 using vocal biomarkers from cough signals.</li>
+            <li>Designed a voice-based cough detector module using YOLO (object detection adapted for audio).</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="job-item">
+      <div>
+        <div class="job-co">CFPA</div>
+        <div class="job-dept">Centre for Forensic Phonetics &amp; Acoustics</div>
+      </div>
+      <div>
+        <div class="role-block">
+          <div class="role-hd">
+            <span class="role-title">Executive Board</span>
+            <span class="role-dates">Sep 2019 – Apr 2022</span>
+          </div>
+          <div class="role"><ul>
+            <li>Handled forensic cases using automatic speaker verification methods.</li>
+            <li>Investigated the influence of speaking style and deepfake voices on modern automatic speaker recognition algorithms.</li>
+            <li>Performed signal pre-processing such as noise removal and speaker diarization (channel separation).</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="job-item">
+      <div><div class="job-co">ACTIONX</div></div>
+      <div>
+        <div class="role-block">
+          <div class="role-hd">
+            <span class="role-title">Data Science Advisor</span>
+            <span class="role-dates">Mar 2021 – Nov 2021</span>
+          </div>
+          <span class="role-sub">Freelance</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="job-item">
+      <div><div class="job-co">Fraunhofer IDMT</div></div>
+      <div>
+        <div class="role-block">
+          <div class="role-hd">
+            <span class="role-title">Master Thesis Student</span>
+            <span class="role-dates">Jan 2015 – Jul 2015</span>
+          </div>
+          <span class="role-sub">Ilmenau, Germany</span>
+          <div class="role"><ul>
+            <li>Research and implementation of an automatic melody generation algorithm.</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="job-item">
+      <div><div class="job-co">Tata Consultancy Services</div></div>
+      <div>
+        <div class="role-block">
+          <div class="role-hd">
+            <span class="role-title">System Engineer</span>
+            <span class="role-dates">Feb 2011 – Aug 2013</span>
+          </div>
+          <span class="role-sub">Chennai, India</span>
+          <div class="role"><ul>
+            <li>Planned, implemented, installed, and maintained systems hardware, software applications, and IT infrastructure.</li>
+            <li>Managed project deployment lifecycle — requirements, research, design, testing, and live implementation.</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="tab-panel" data-tab="education">
+    <div class="section-label">Education</div>
+
+    <div class="edu-item">
+      <div class="edu-yr">2015 – 2019</div>
+      <div>
+        <div class="edu-school">University of Zurich</div>
+        <div class="edu-degree">Ph.D. <em>summa cum laude</em>, Computational Linguistics / Phonetics and Speech Sciences</div>
+        <div class="edu-note">Funded by the Swiss National Science Foundation (SNSF) for 3 years; Forschungskredit Candoc Scholarship for 1 year.</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-yr">2014 – 2015</div>
+      <div>
+        <div class="edu-school">KTH Royal Institute of Technology</div>
+        <div class="edu-degree">M.Sc., Multimedia Signal Processing · Stockholm</div>
+        <div class="edu-note">ERASMUS MUNDUS Master in Research in Information Technologies (MERIT).</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-yr">2013 – 2014</div>
+      <div>
+        <div class="edu-school">Universitat Politècnica de Catalunya (UPC)</div>
+        <div class="edu-degree">M.Sc., Multimedia Signal Processing · Barcelona</div>
+        <div class="edu-note">ERASMUS MUNDUS Master in Research in Information Technologies (MERIT).</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-yr">2006 – 2010</div>
+      <div>
+        <div class="edu-school">Anna University, Chennai</div>
+        <div class="edu-degree">B.Eng., Electronics and Communications Engineering</div>
+        <div class="edu-note">Filed a patent for final-year project <em>CODE 360 — Advanced Color Coding Technique for Object Identification</em> (3112/CHE/2010 A, Dec 2010).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="tab-panel" data-tab="skills">
+    <div class="section-label">Skills &amp; Languages</div>
+
+    <div class="skills-block">
+      <div class="skills-lbl">Programming</div>
+      <ul class="chips">
+        <li>Python</li><li>R</li><li>Kaldi</li><li>MATLAB</li><li>C++</li><li>Bash</li><li>PRAAT</li><li>SQL</li><li>LaTeX</li>
+      </ul>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-lbl">Machine Learning</div>
+      <ul class="chips">
+        <li>TensorFlow</li><li>PyTorch</li><li>Keras</li>
+      </ul>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-lbl">Domain Expertise</div>
+      <ul class="chips">
+        <li>Digital Signal Processing</li><li>Speech Processing</li><li>Automatic Speech Recognition</li><li>Speaker Recognition</li><li>Speech Synthesis</li><li>NLP</li><li>Forensic Analysis</li><li>LLMOps</li><li>Generative AI</li>
+      </ul>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-lbl">Soft Skills</div>
+      <ul class="chips">
+        <li>Leadership</li><li>Project Management</li><li>Technical Writing</li><li>Communication</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-label">Languages</div>
+
+    <ul class="lang-list">
+      <li class="lang-item"><span>Tamil</span><span class="lang-lvl">Native / Bilingual</span></li>
+      <li class="lang-item"><span>English</span><span class="lang-lvl">Professional Working</span></li>
+      <li class="lang-item"><span>German</span><span class="lang-lvl">Elementary (A1)</span></li>
     </ul>
-  </section>
+  </div>
 
-  <section>
-    <h2>Publications</h2>
+  <!-- RESEARCH -->
+  <div class="tab-panel" data-tab="research">
+    <div class="section-label">Research &amp; Publications</div>
 
-    <div class="stats">
-      <div class="stat-item"><span class="stat-num">121</span><span class="stat-label">Citations</span></div>
-      <div class="stat-item"><span class="stat-num">7</span><span class="stat-label">h-index</span></div>
-      <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">i10-index</span></div>
-      <div class="stat-item" style="margin-left:auto;align-self:center">
-        <a href="https://scholar.google.com/citations?user=bD7qkMkAAAAJ&hl=en" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent);font-size:0.9rem">View on Google Scholar →</a>
-      </div>
+    <div class="pub-stats">
+      <div class="stat-box"><span class="stat-num">121</span><span class="stat-lbl">Citations</span></div>
+      <div class="stat-box"><span class="stat-num">7</span><span class="stat-lbl">h-index</span></div>
+      <div class="stat-box"><span class="stat-num">5</span><span class="stat-lbl">i10-index</span></div>
+      <div class="stat-box"><a href="https://scholar.google.com/citations?user=bD7qkMkAAAAJ&hl=en" target="_blank" rel="noopener" class="scholar-link">Google Scholar →</a></div>
     </div>
 
-    <div class="pub-group">
-      <div class="pub-group-year">2026</div>
-
-      <div class="pub">
-        <div class="pub-body">
+    <div class="pub-yr-group">
+      <div class="pub-yr-label">2026</div>
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Beyond word error rate: Multidimensional evaluation of ASR performance for digital speech biomarkers</div>
           <div class="pub-authors"><strong>T. Kathiresan</strong>, Z. Ling, L. Gasparini, S. E. Piccolo, C. Tjiandra, H. Elhammamy, et al.</div>
         </div>
       </div>
-
-      <div class="pub">
-        <div class="pub-body">
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Evaluation of an Audio-Based Monitoring System for Detecting Retching and Vomiting in Gastroparesis: An Observational Cohort Study</div>
           <div class="pub-authors">Y. Gong, J. Imsirovic, B. Tracey, N. Stylopoulos, Y. Zhang, M. Tahir, J. Yuan, et al.</div>
         </div>
       </div>
     </div>
 
-    <div class="pub-group">
-      <div class="pub-group-year">2024</div>
-
-      <div class="pub">
-        <div class="pub-body">
+    <div class="pub-yr-group">
+      <div class="pub-yr-label">2024</div>
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Cortical-striatal brain network distinguishes deepfake from real speaker identity</div>
           <div class="pub-authors">C. Roswandowitz, <strong>T. Kathiresan</strong>, E. Pellegrino, V. Dellwo, S. Frühholz</div>
           <div class="pub-venue">Communications Biology 7 (1), 711</div>
           <div class="pub-doi"><a href="https://doi.org/10.1038/s42003-024-06372-6" target="_blank" rel="noopener">doi.org/10.1038/s42003-024-06372-6</a></div>
         </div>
-        <div class="pub-cite">14 cites</div>
+        <div class="pub-badge">14 cites</div>
       </div>
-
-      <div class="pub">
-        <div class="pub-body">
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Optimizing communication in ataxia: a multifaceted approach to alternative and augmentative communication (AAC)</div>
           <div class="pub-authors">A. P. Vogel, C. Spencer, K. Burke, D. de Bruyn, P. Gibilisco, S. Blackman, J. M. Vojtech, <strong>T. Kathiresan</strong></div>
           <div class="pub-venue">The Cerebellum 23 (5), 2142–2151</div>
           <div class="pub-doi"><a href="https://doi.org/10.1007/s12311-024-01675-0" target="_blank" rel="noopener">doi.org/10.1007/s12311-024-01675-0</a></div>
         </div>
-        <div class="pub-cite">13 cites</div>
+        <div class="pub-badge">13 cites</div>
       </div>
     </div>
 
-    <div class="pub-group">
-      <div class="pub-group-year">2022</div>
-
-      <div class="pub">
-        <div class="pub-body">
+    <div class="pub-yr-group">
+      <div class="pub-yr-label">2022</div>
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Vowel convergence does not affect auditory speaker discriminability in humans and machine in a case study on Swiss German dialects</div>
           <div class="pub-authors">E. Pellegrino, <strong>T. Kathiresan</strong>, V. Dellwo</div>
           <div class="pub-venue">The International Journal of Speech, Language and the Law 29 (1), 60–84</div>
         </div>
-        <div class="pub-cite">3 cites</div>
+        <div class="pub-badge">3 cites</div>
       </div>
-
-      <div class="pub">
-        <div class="pub-body">
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Mothers reveal more of their vocal identity when talking to infants</div>
           <div class="pub-authors"><strong>T. Kathiresan</strong>, A. Hervais-Adelman, S. W. Townsend, L. Dilley, R. Shi, et al.</div>
           <div class="pub-venue">SSRN 4088888</div>
         </div>
-        <div class="pub-cite">2 cites</div>
+        <div class="pub-badge">2 cites</div>
       </div>
     </div>
 
-    <div class="pub-group">
-      <div class="pub-group-year">2021</div>
-
-      <div class="pub">
-        <div class="pub-body">
+    <div class="pub-yr-group">
+      <div class="pub-yr-label">2021</div>
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Gender bias in voice recognition: An i- and x-vector-based gender-specific automatic speaker recognition study</div>
           <div class="pub-authors"><strong>T. Kathiresan</strong></div>
           <div class="pub-venue">Studi AISV 8, 113–122</div>
         </div>
-        <div class="pub-cite">6 cites</div>
+        <div class="pub-badge">6 cites</div>
       </div>
     </div>
 
-    <div class="pub-group">
-      <div class="pub-group-year">2019</div>
-
-      <div class="pub">
-        <div class="pub-body">
+    <div class="pub-yr-group">
+      <div class="pub-yr-label">2019</div>
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Cepstral derivatives in MFCCs for emotion recognition</div>
           <div class="pub-authors"><strong>T. Kathiresan</strong>, V. Dellwo</div>
           <div class="pub-venue">2019 IEEE 4th International Conference on Signal and Image Processing (ICSIP)</div>
         </div>
-        <div class="pub-cite">17 cites</div>
+        <div class="pub-badge">17 cites</div>
       </div>
-
-      <div class="pub">
-        <div class="pub-body">
+      <div class="pub-item">
+        <div>
           <div class="pub-title">The dynamics of indexical information in speech: Can recognizability be controlled by the speaker?</div>
           <div class="pub-authors">V. Dellwo, E. Pellegrino, L. He, <strong>T. Kathiresan</strong></div>
           <div class="pub-venue">AUC Philologica 2019 (2), 57–75</div>
         </div>
-        <div class="pub-cite">16 cites</div>
+        <div class="pub-badge">16 cites</div>
       </div>
-
-      <div class="pub">
-        <div class="pub-body">
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Highly spectrally undersampled vowels can be classified by machines without supervision</div>
           <div class="pub-authors"><strong>T. Kathiresan</strong>, D. Maurer, V. Dellwo</div>
           <div class="pub-venue">The Journal of the Acoustical Society of America 146 (1), EL1–EL7</div>
         </div>
-        <div class="pub-cite">4 cites</div>
+        <div class="pub-badge">4 cites</div>
       </div>
-
-      <div class="pub">
-        <div class="pub-body">
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Can prosody be the key to spot fake voices? Acoustic and automatic speaker verification analyses on digital and natural voices</div>
           <div class="pub-authors">E. Pellegrino, <strong>T. Kathiresan</strong>, C. Roswandowitz, S. Frühholz, V. Dellwo</div>
           <div class="pub-venue">The 28th Conference of the IAFPA</div>
         </div>
-        <div class="pub-cite">3 cites</div>
+        <div class="pub-badge">3 cites</div>
       </div>
-
-      <div class="pub">
-        <div class="pub-body">
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Infant-directed speech enhances recognizability of individual mothers' voices</div>
           <div class="pub-authors"><strong>T. Kathiresan</strong>, L. Dilley, S. Townsend, R. Shi, M. Daum, M. K. Arjmandi, et al.</div>
           <div class="pub-venue">The Journal of the Acoustical Society of America 145 (3_Supplement), 1766</div>
         </div>
-        <div class="pub-cite">2 cites</div>
+        <div class="pub-badge">2 cites</div>
       </div>
     </div>
 
-    <div class="pub-group">
-      <div class="pub-group-year">2018</div>
-
-      <div class="pub">
-        <div class="pub-body">
+    <div class="pub-yr-group">
+      <div class="pub-yr-label">2018</div>
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Formant pattern and spectral shape ambiguity in vowel synthesis: The role of fundamental frequency and formant amplitude</div>
           <div class="pub-authors"><strong>T. Kathiresan</strong>, D. Maurer, H. Suter, V. Dellwo</div>
           <div class="pub-venue">The Journal of the Acoustical Society of America 143 (3_Supplement), 1919–1920</div>
         </div>
-        <div class="pub-cite">11 cites</div>
+        <div class="pub-badge">11 cites</div>
       </div>
-
-      <div class="pub">
-        <div class="pub-body">
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Influences of Fundamental Oscillation on Speaker Identification in Vocalic Utterances by Humans and Computers</div>
           <div class="pub-authors">V. Dellwo, <strong>T. Kathiresan</strong>, E. Pellegrino, L. He, S. Schwab, D. Maurer</div>
           <div class="pub-venue">Interspeech, 3795–3799</div>
         </div>
-        <div class="pub-cite">8 cites</div>
+        <div class="pub-badge">8 cites</div>
       </div>
-
-      <div class="pub">
-        <div class="pub-body">
+      <div class="pub-item">
+        <div>
           <div class="pub-title">The Zurich Corpus of Vowel and Voice Quality, Version 1.0</div>
           <div class="pub-authors">D. Maurer, C. d'Heureuse, H. Suter, V. Dellwo, D. Friedrichs, <strong>T. Kathiresan</strong></div>
           <div class="pub-venue">Proc. Interspeech 2018, 1417–1421</div>
         </div>
-        <div class="pub-cite">4 cites</div>
+        <div class="pub-badge">4 cites</div>
       </div>
-
-      <div class="pub">
-        <div class="pub-body">
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Sinewave vowel sounds: The role of vowel qualities, frequencies and harmonicity of sinusoids, and perceived pitch for vowel recognition</div>
           <div class="pub-authors">D. Maurer, H. Suter, <strong>T. Kathiresan</strong>, V. Dellwo</div>
         </div>
-        <div class="pub-cite">1 cite</div>
+        <div class="pub-badge">1 cite</div>
       </div>
     </div>
 
-    <div class="pub-group">
-      <div class="pub-group-year">2017</div>
-
-      <div class="pub">
-        <div class="pub-body">
+    <div class="pub-yr-group">
+      <div class="pub-yr-label">2017</div>
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Enhancing the objectivity of interactive formant estimation: introducing Euclidean distance measure and numerical conditions for numbers and frequency ranges of formants</div>
           <div class="pub-authors"><strong>T. Kathiresan</strong>, D. Maurer, H. Suter, V. Dellwo</div>
           <div class="pub-venue">Conference on Electronic Speech Signal Processing, 130–137</div>
         </div>
-        <div class="pub-cite">4 cites</div>
+        <div class="pub-badge">4 cites</div>
       </div>
-
-      <div class="pub">
-        <div class="pub-body">
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Formant pattern ambiguity of vowel sounds revisited in synthesis: Changing perceptual vowel quality by only changing fundamental frequency</div>
           <div class="pub-authors">D. Maurer, V. Dellwo, H. Suter, <strong>T. Kathiresan</strong></div>
           <div class="pub-venue">The Journal of the Acoustical Society of America 141 (5_Supplement), 3469–3470</div>
         </div>
-        <div class="pub-cite">3 cites</div>
+        <div class="pub-badge">3 cites</div>
       </div>
-
-      <div class="pub">
-        <div class="pub-body">
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Cepstral Dynamics in MFCCs using Conventional Deltas for Emotion and Speaker Recognition</div>
           <div class="pub-authors"><strong>T. Kathiresan</strong>, V. Dellwo</div>
           <div class="pub-venue">The International Association for Forensic Phonetics and Acoustics (IAFPA)</div>
         </div>
-        <div class="pub-cite">1 cite</div>
+        <div class="pub-badge">1 cite</div>
       </div>
     </div>
 
-    <div class="pub-group">
-      <div class="pub-group-year">2015</div>
-
-      <div class="pub">
-        <div class="pub-body">
+    <div class="pub-yr-group">
+      <div class="pub-yr-label">2015</div>
+      <div class="pub-item">
+        <div>
           <div class="pub-title">Automatic melody generation</div>
           <div class="pub-authors"><strong>T. Kathiresan</strong></div>
           <div class="pub-venue">M.Sc. Thesis, Fraunhofer IDMT</div>
         </div>
-        <div class="pub-cite">9 cites</div>
+        <div class="pub-badge">9 cites</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPEAKING -->
+  <div class="tab-panel" data-tab="speaking">
+    <div class="section-label">Media &amp; Speaking</div>
+
+    <div class="media-item">
+      <div class="media-yr">Invited</div>
+      <div>
+        <div class="media-title">IAAM Summit — Melbourne, Australia</div>
+        <div class="media-meta">Invited speaker · International Association of Advanced Materials Summit</div>
       </div>
     </div>
 
-  </section>
+    <div class="media-item">
+      <div class="media-yr">Invited</div>
+      <div>
+        <div class="media-title">IAAM Summit — Sydney, Australia</div>
+        <div class="media-meta">Invited speaker · International Association of Advanced Materials Summit</div>
+      </div>
+    </div>
 
-  <section>
-    <h2>Media &amp; Speaking</h2>
     <div class="media-item">
-      <div class="media-title">IAAM Summit — Melbourne, Australia</div>
-      <div class="media-meta">Invited speaker · International Association of Advanced Materials Summit</div>
+      <div class="media-yr">Feb 2020</div>
+      <div>
+        <div class="media-title">Einstein TV Show — SRF TV, Switzerland</div>
+        <div class="media-meta">Episode: "Voice Recognition and Artificial Intelligence (AI) — Will Others Soon Sound Like Us?"</div>
+        <ul>
+          <li>Synthesised deepfake voices to demonstrate voice hacking in voice-based banking systems.</li>
+          <li>Explained the pros and cons of voice-based A.I. algorithms to the general public.</li>
+        </ul>
+      </div>
     </div>
-    <div class="media-item">
-      <div class="media-title">IAAM Summit — Sydney, Australia</div>
-      <div class="media-meta">Invited speaker · International Association of Advanced Materials Summit</div>
-    </div>
-    <div class="media-item">
-      <div class="media-title">Einstein TV Show — SRF TV, Switzerland</div>
-      <div class="media-meta">Episode: "Voice Recognition and Artificial Intelligence (AI) — Will Others Soon Sound Like Us?" · Feb 2020</div>
-      <ul style="margin:4px 0 0;padding-left:20px;font-size:0.93rem">
-        <li>Synthesised deepfake voices to demonstrate voice hacking in voice-based banking systems.</li>
-        <li>Explained the pros and cons of voice-based A.I. algorithms to the general public.</li>
-      </ul>
-    </div>
-    <div class="media-item">
-      <div class="media-title">SRF Radio Podcast — SRF Radio, Switzerland</div>
-      <div class="media-meta">Episode: "The Nifty Lie, Part 3: Deepfakes — Dangerous / Overrated?" · May 2020</div>
-      <ul style="margin:4px 0 0;padding-left:20px;font-size:0.93rem">
-        <li>Discussed how we fall for manipulated media and the complexity of deepfake synthesis and its societal impact.</li>
-      </ul>
-    </div>
-  </section>
 
-  <div class="two-col">
-    <section>
-      <h2>Patents</h2>
-      <ul class="plain">
-        <li>CODE 360 — Advanced Color Coding Technique for Object Identification and Tracking (3112/CHE/2010 A)</li>
-      </ul>
-    </section>
+    <div class="media-item">
+      <div class="media-yr">May 2020</div>
+      <div>
+        <div class="media-title">SRF Radio Podcast — SRF Radio, Switzerland</div>
+        <div class="media-meta">Episode: "The Nifty Lie, Part 3: Deepfakes — Dangerous / Overrated?"</div>
+        <ul>
+          <li>Discussed how we fall for manipulated media and the complexity of deepfake synthesis and its societal impact.</li>
+        </ul>
+      </div>
+    </div>
 
-    <section>
-      <h2>Certifications</h2>
-      <ul class="plain">
-        <li>Introduction to Machine Learning in Production</li>
-      </ul>
-    </section>
+    <div class="divider"></div>
+    <div class="section-label">Patents &amp; Certifications</div>
+
+    <div class="media-item">
+      <div class="media-yr">2010</div>
+      <div>
+        <div class="media-title">CODE 360 — Advanced Color Coding Technique</div>
+        <div class="media-meta">Patent No. 3112/CHE/2010 A · Object Identification and Tracking</div>
+      </div>
+    </div>
+
+    <div class="media-item">
+      <div class="media-yr">Cert.</div>
+      <div>
+        <div class="media-title">Introduction to Machine Learning in Production</div>
+        <div class="media-meta">Professional Certification</div>
+      </div>
+    </div>
   </div>
 
-  <footer>
-    © <span id="y"></span> Thayabaran Kathiresan
-  </footer>
+</main>
 
-</div>
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<footer>
+  <span>© <span id="yr"></span> Thayabaran Kathiresan</span>
+  <span>Australian PR · Melbourne, AU</span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Lenis smooth scroll
+const lenis = new Lenis({ lerp: 0.075, smoothWheel: true });
+gsap.ticker.add((t) => lenis.raf(t * 1000));
+gsap.ticker.lagSmoothing(0);
+gsap.registerPlugin(ScrollTrigger);
+lenis.on('scroll', ScrollTrigger.update);
+
+// Hero entrance
+const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+tl.to('.hero-eyebrow', { y: 0, opacity: 1, duration: 0.8 })
+  .to('.hero-name .line-inner', { y: '0%', opacity: 1, duration: 1.1, stagger: 0.14 }, '-=0.5')
+  .to('.hero-meta', { opacity: 1, y: 0, duration: 0.7 }, '-=0.4')
+  .to('.scroll-hint', { opacity: 1, duration: 0.5 }, '-=0.3');
+
+// Tabs
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabBar  = document.getElementById('tab-bar');
+
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target     = btn.dataset.tab;
+    const curPanel   = document.querySelector('.tab-panel.active');
+    const nextPanel  = document.querySelector(`.tab-panel[data-tab="${target}"]`);
+    if (curPanel === nextPanel) return;
+
+    tabBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    gsap.to(curPanel, {
+      opacity: 0, y: 14, duration: 0.2, ease: 'power2.in',
+      onComplete() {
+        curPanel.classList.remove('active');
+        nextPanel.classList.add('active');
+        gsap.fromTo(nextPanel,
+          { opacity: 0, y: 14 },
+          { opacity: 1, y: 0, duration: 0.32, ease: 'power2.out' }
+        );
+        // scroll to just below tab bar
+        const offset = tabBar.getBoundingClientRect().bottom + window.scrollY + 1;
+        lenis.scrollTo(offset, { duration: 0.5 });
+      }
+    });
+  });
+});
+
+// Scroll-reveal for list items
+gsap.utils.toArray('.job-item,.edu-item,.pub-item,.media-item,.skills-block,.lang-item').forEach(el => {
+  gsap.from(el, {
+    scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+    opacity: 0, y: 20, duration: 0.45, ease: 'power2.out'
+  });
+});
+</script>
 </body>
 </html>
