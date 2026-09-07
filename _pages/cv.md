@@ -141,6 +141,7 @@ AI research and innovation leader working at the intersection of artificial inte
 * **Forschungskredit Candoc Research Grant** — University of Zurich (Ph.D. funding)
 * **Ph.D. awarded *summa cum laude*** — University of Zurich
 * **Invited Speaker** — Identity and Access Management Summits, Melbourne (2025) and Sydney (2026), on defending against deepfake voice threats
+* **Invited Speaker** — [First Virtual Workshop on Automatic Diagnostics of COVID-19 Sounds](https://health-sounds.cl.cam.ac.uk/workshop20/), University of Cambridge (2020), sponsored by the European Research Council (Project EAR)
 * **Invited Keynote Speaker** — International Virtual Conference on Artificial Intelligence and Statistics (IVCAIS 2021)
 * **Invited Expert** — international technology transfer between the University of Zurich, Sweden and the National Institute of Informatics (NII), Japan
 * **Swiss national television** — guest on SRF *Einstein* demonstrating deepfake voice technology
