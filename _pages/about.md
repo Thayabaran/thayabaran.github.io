@@ -80,7 +80,7 @@ I contribute to the development and leadership of collaborative research program
 
 - **MS Australia** — *AI-assisted analysis of communication in MS using large language models* (Grant 24-IGR2-0321, 2025). Applying large language models to detect communication change in people with multiple sclerosis.
 
-I also collaborate on research programs funded by the **NHMRC**, **MRFF** and **ARC**.
+I also contribute to research programs led by others and funded by the **NHMRC**, **MRFF** and **ARC**, as a collaborator rather than a named grant holder.
 
 I am particularly interested in collaborations involving clinical AI, digital biomarkers, speech and language technologies, neurological and neurodevelopmental disorders, multimodal biomarkers, and AI-enabled clinical outcome measures.
 
