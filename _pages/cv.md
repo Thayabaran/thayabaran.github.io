@@ -9,54 +9,71 @@ redirect_from:
 
 {% include base_path %}
 
+## Summary
+
+AI research and innovation leader working at the intersection of artificial intelligence, speech science and clinical research. I lead research programs developing and validating AI-derived speech, language and digital biomarker measures, and translate them into scalable technologies for clinical research.
+
+---
+
 ## Experience
 
 **Redenlab** — Melbourne, Australia
-* Director of Speech Sciences *(May 2024 – Present, 0.8 FTE)*
-  * Design digital biomarkers capturing clinical outcomes from smartphone speech data.
-  * Develop remote patient-monitoring workflows and clinical-trial data pipelines.
-  * Deploy speech biomarker algorithms to validate clinical-study endpoints.
-* Senior Speech Data Scientist *(May 2023 – May 2024, 0.8 FTE)*
+* Senior Director of Speech Analytics *(Jan 2026 – Present, 0.8 FTE)*
+  * Lead research strategy and innovation across speech AI, machine learning and digital biomarker development.
+  * Lead multidisciplinary programs spanning speech foundation models, ASR, acoustic-phonetic modelling, NLP and generative AI.
+  * Oversee the progression of new methods from exploratory research through scientific validation to clinical translation.
+  * Mentor scientists and engineers; establish validation, reproducibility and scientific governance standards.
+  * Develop grant-funded collaborations with clinical, academic, pharmaceutical and technology partners.
+* Director of Speech Science *(Apr 2024 – Jan 2026, 0.8 FTE)*
+  * Led development of digital biomarkers capturing clinical outcomes from smartphone speech data.
+  * Directed remote patient-monitoring workflows and clinical-trial data pipelines.
+  * Led deployment of speech biomarker algorithms to validate clinical-study endpoints.
+* Senior Speech Data Scientist *(May 2023 – Apr 2024, 0.8 FTE)*
   * Designed and analysed speech-based biomarkers for neurological disorders.
   * Built an automatic quality-control pipeline for clinical speech recordings.
 
 **University of Melbourne** — Dept. of Audiology & Speech Pathology
-* Senior Post-doctoral Researcher *(May 2023 – Present, 0.2 FTE)*
-  * Studying speech and language in progressive and acquired neurological conditions.
-  * Supervising honours and postgraduate research projects.
+* Senior Postdoctoral Fellow *(May 2023 – Present, 0.2 FTE)*
+  * Research on speech and language in progressive and acquired neurological conditions.
+  * Supervision of honours and postgraduate research projects.
 
 **Telepathy Labs** — Zurich, Switzerland
 * Senior Research Engineer *(Dec 2021 – Mar 2023)*
-  * Developed ASR engine using self-supervision, BERT, and Wav2Vec models.
+  * Developed ASR engine using self-supervision, BERT and Wav2Vec models.
   * Aligned R&D with industry standards in an agile development environment.
 
-**Zoi Meet** — Netherlands (Freelance)
-* Artificial Intelligence Scientist *(Apr 2021 – Dec 2021)*
+**Zoi Meet** — Netherlands
+* Artificial Intelligence Scientist *(Apr 2021 – Nov 2021)*
   * Developed privacy-compliant speech-technology algorithms for medical use.
   * Implemented AWS-based service architecture and ML pipelines.
 
 **VoiceMed** — Luxembourg (Remote)
-* Founding Member & Senior Data Scientist *(Mar 2020 – Apr 2021)*
-  * Led R&D team; designed a COVID-19 diagnostic tool using vocal biomarkers.
-  * Built a YOLO-based voice cough detector module.
+* Founding Member & Lead Speech Scientist *(Apr 2020 – Apr 2021)*
+  * Led an R&D team of data scientists and ML engineers.
+  * Designed a COVID-19 diagnostic tool using vocal biomarkers from cough signals.
+  * Built service architecture and ML pipelines on AWS using MLOps and FastAPI.
 
-**University of Zurich** — Dept. of Computational Linguistics
-* Postdoctoral Researcher *(Nov 2019 – Dec 2021)*
-* Research Assistant *(Dec 2015 – Nov 2019)*
+**Universität Zürich** — Dept. of Computational Linguistics
+* Postdoctoral Researcher *(Nov 2019 – Nov 2021)*
+  * Investigated vocal-fingerprint variability under different speaking conditions using deep-learning speaker recognition.
+  * Customised and deployed automatic speaker recognition algorithms on AWS EC2.
+* Research Associate *(Dec 2015 – Nov 2019)*
 
 **Centre for Forensic Phonetics and Acoustics (CFPA)**
 * Executive Board *(Sep 2019 – Apr 2022)*
-  * Handled forensic cases using automatic speaker verification.
-  * Investigated deepfake voice impacts on ASR algorithms.
+  * Handled forensic casework using automatic speaker verification methods.
+  * Investigated the influence of speaking style and deepfake voices on speaker recognition.
 
 **ACTIONX** — Freelance
 * Data Science Advisor *(Mar 2021 – Nov 2021)*
 
+**Tata Consultancy Services** — Chennai, India
+* System Engineer *(Aug 2015 – Nov 2015)*
+* System Engineer *(Jan 2011 – Aug 2013)*
+
 **Fraunhofer IDMT** — Ilmenau, Germany
 * Master Thesis Student *(Jan 2015 – Jul 2015)*
-
-**Tata Consultancy Services** — Chennai, India
-* System Engineer *(Feb 2011 – Aug 2013)*
+  * Research and implementation of an automatic melody generation algorithm.
 
 ---
 
@@ -74,8 +91,8 @@ redirect_from:
 
 * **Programming:** Python, R, Kaldi, MATLAB, C++, Bash, PRAAT, SQL, LaTeX
 * **ML Frameworks:** TensorFlow, PyTorch, Keras
-* **Domain:** Digital Signal Processing, Speech Processing, ASR, Speaker Recognition, Speech Synthesis, NLP, Forensic Analysis, LLMOps, Generative AI
-* **Soft Skills:** Leadership, Project Management, Technical Writing
+* **Domain:** Digital Signal Processing, Speech Processing, ASR, Speaker Recognition, Speech Synthesis, Speech Foundation Models, Digital Biomarkers, NLP, Forensic Analysis, LLMOps, Generative AI
+* **Leadership:** AI Research Strategy, Clinical AI, Scientific Validation, Research Translation, Program & Team Leadership, Grant Development, Mentoring, Technical Writing
 
 ---
 

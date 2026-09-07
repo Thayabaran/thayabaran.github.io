@@ -7,3 +7,4 @@ date: 2026-01-01
 venue: 'Preprint'
 citation: 'T. Kathiresan, Z. Ling, L. Gasparini, S. E. Piccolo, C. Tjiandra, H. Elhammamy, et al. (2026). "Beyond word error rate: Multidimensional evaluation of ASR performance for digital speech biomarkers."'
 ---
+1 citation.

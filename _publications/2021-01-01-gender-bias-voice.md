@@ -7,4 +7,4 @@ date: 2021-01-01
 venue: 'Studi AISV, 8, 113–122'
 citation: 'T. Kathiresan (2021). "Gender bias in voice recognition." <i>Studi AISV</i>, 8, 113–122.'
 ---
-6 citations.
+8 citations.

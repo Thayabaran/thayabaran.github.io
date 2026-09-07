@@ -4,7 +4,7 @@ site_theme               : "default"
 title                    : "Thayabaran Kathiresan, Ph.D."
 title_separator          : "-"
 name                     : &name "Thayabaran Kathiresan"
-description              : &description "Applied A.I. Scientist — Speech Processing, Digital Biomarkers, Machine Learning"
+description              : &description "AI Research & Innovation Leader — Speech & Language AI, Digital Biomarkers, Clinical AI"
 url                      : https://thayabaran.github.io
 baseurl                  : ""
 repository               : "Thayabaran/thayabaran.github.io"
@@ -14,9 +14,9 @@ author:
   avatar           : "profile.jpg"
   name             : "Thayabaran Kathiresan"
   pronouns         :
-  bio              : "Applied A.I. Scientist"
+  bio              : "AI Research & Innovation Leader · Speech & Language AI · Digital Biomarkers · Clinical AI"
   location         : "Melbourne, Australia"
-  employer         : "Redenlab · University of Melbourne"
+  employer         : "Senior Director of Speech Analytics, Redenlab · Senior Postdoctoral Fellow, University of Melbourne"
   uri              :
   email            : "mail2thaya.k@gmail.com"
 

@@ -8,4 +8,4 @@ venue: 'The Cerebellum, 23(5), 2142–2151'
 paperurl: 'https://doi.org/10.1007/s12311-024-01675-0'
 citation: 'A. P. Vogel, C. Spencer, K. Burke, D. de Bruyn, P. Gibilisco, S. Blackman, J. M. Vojtech, T. Kathiresan (2024). "Optimizing communication in ataxia." <i>The Cerebellum</i>, 23(5), 2142–2151.'
 ---
-13 citations. DOI: [10.1007/s12311-024-01675-0](https://doi.org/10.1007/s12311-024-01675-0)
+17 citations. DOI: [10.1007/s12311-024-01675-0](https://doi.org/10.1007/s12311-024-01675-0)
