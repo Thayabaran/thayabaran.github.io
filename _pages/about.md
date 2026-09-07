@@ -18,13 +18,13 @@ Leading the development and translation of artificial intelligence technologies 
 
 I am an AI research and innovation leader specialising in the development and translation of artificial intelligence technologies for speech, language and digital health.
 
-As **Senior Director of Speech Analytics at Redenlab**, I lead research and innovation across speech AI, machine learning and digital biomarker development, with a particular focus on neurological and neurodevelopmental disorders. My work spans the full research lifecycle — from identifying clinically meaningful problems and developing new computational methods, through scientific validation, to translation into scalable clinical research technologies.
+As **Senior Director of Speech Analytics at Redenlab**, I lead research and innovation across speech AI, machine learning and digital biomarker development, with a particular focus on neurological and neurodevelopmental disorders. My work spans the full research lifecycle — from identifying clinically meaningful problems and developing new computational methods, through scientific validation, to translation into scalable clinical research technologies. I lead the development of digital biomarkers used in clinical trials across more than **300 sites in 25 countries**, including the speech data pipelines, remote monitoring workflows and speech-based endpoint analysis tools that support cross-site, multilingual studies.
 
 I lead multidisciplinary research programs involving speech foundation models, machine learning, automatic speech recognition, acoustic and phonetic modelling, natural language processing, digital biomarkers and generative AI. A major focus of my work is developing objective, AI-derived endpoints that can quantify clinically meaningful change in speech and communication.
 
 My role also involves establishing research strategy, leading scientific collaborations, developing grant-funded research programs, mentoring scientists, and working with clinical, academic and industry partners to translate emerging AI research into robust and clinically meaningful capabilities.
 
-Alongside my industry role, I am a **Senior Postdoctoral Fellow at the University of Melbourne**, Department of Audiology and Speech Pathology, where I contribute to research at the intersection of artificial intelligence, speech science and clinical research.
+Alongside my industry role, I am a **Senior Postdoctoral Fellow at the University of Melbourne**, Department of Audiology and Speech Pathology, where I contribute to research at the intersection of artificial intelligence, speech science and clinical research and supervise graduate students. Clinically, my work focuses on speech and language analysis in neurological populations, including ataxia, Friedreich's ataxia, ALS, multiple sclerosis and dementia.
 
 ## Research & Innovation
 
@@ -74,6 +74,12 @@ I also work closely with clinicians, academics, pharmaceutical researchers and t
 ## Grants & Research Partnerships
 
 I contribute to the development and leadership of collaborative research programs spanning academia, healthcare and industry. My work includes identifying new research opportunities, developing AI and digital biomarker methodologies for competitive grant applications, establishing multidisciplinary collaborations, and translating grant-funded research into reusable scientific capabilities.
+
+**Current funded research**
+
+- **MS Australia** — *AI-assisted analysis of communication in MS using large language models* (Grant 24-IGR2-0321). Applying large language models to detect communication change in people with multiple sclerosis.
+
+I also collaborate on research programs funded by the **NHMRC**, **MRFF** and **ARC**.
 
 I am particularly interested in collaborations involving clinical AI, digital biomarkers, speech and language technologies, neurological and neurodevelopmental disorders, multimodal biomarkers, and AI-enabled clinical outcome measures.
 
