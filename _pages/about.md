@@ -78,7 +78,8 @@ I contribute to the development and leadership of collaborative research program
 
 **Funded research**
 
-- **MS Australia** — *AI-assisted analysis of communication in MS using large language models* (Grant 24-IGR2-0321, 2025). Applying large language models to detect communication change in people with multiple sclerosis.
+- **MS Australia Incubator Grant 24-IGR2-0321** (2025) — *[Language function in multiple sclerosis](https://www.msaustralia.org.au/project/language-function-in-multiple-sclerosis/)*, as **Co-Investigator** with lead investigator Prof. Adam Vogel. Digital speech assessment, AI and sentiment analysis applied to detect early cognitive change in multiple sclerosis.
+- **SNSF Project Funding** — *[The dynamics of indexical information in speech](https://data.snf.ch/grants/person/673199)* (PI Prof. Volker Dellwo, University of Zurich, 2019–2025), on which I was employed as a researcher.
 
 I also contribute to research programs led by others and funded by the **NHMRC**, **MRFF** and **ARC**, as a collaborator rather than a named grant holder.
 
@@ -88,9 +89,9 @@ I am particularly interested in collaborations involving clinical AI, digital bi
 
 Signal Processing & Engineering → Speech Science & Phonetics → Machine Learning & AI → Clinical Speech AI → Digital Biomarkers → AI Research & Innovation Leadership
 
-I completed my **Ph.D. *summa cum laude*** in Computational Linguistics / Phonetics and Speech Sciences at the **University of Zurich** (2015–2019), funded by the Swiss National Science Foundation (SNSF) and a Forschungskredit Candoc Scholarship. Prior to that I held an ERASMUS MUNDUS fellowship, earning M.Sc. degrees from **KTH Royal Institute of Technology** (Stockholm) and **Universitat Politècnica de Catalunya** (Barcelona), following a B.Eng. in Electronics and Communications Engineering from Anna University, Chennai.
+I completed my **Ph.D. *summa cum laude*** in Computational Linguistics / Phonetics and Speech Sciences at the **University of Zurich** (2015–2019), funded by a Forschungskredit Candoc Scholarship. Prior to that I held an ERASMUS MUNDUS fellowship, earning M.Sc. degrees from **KTH Royal Institute of Technology** (Stockholm) and **Universitat Politècnica de Catalunya** (Barcelona), following a B.Eng. in Electronics and Communications Engineering from Anna University, Chennai.
 
-My professional experience spans clinical-trial speech technology (Redenlab), ASR research (Telepathy Labs, Zurich), COVID-19 vocal biomarker diagnostics (VoiceMed, Luxembourg), forensic speaker verification (Centre for Forensic Phonetics and Acoustics), and enterprise IT (Tata Consultancy Services).
+My professional experience spans clinical-trial speech technology (Redenlab), ASR research (Telepathy Labs, Zurich), COVID-19 vocal biomarker diagnostics (VoiceMed, Luxembourg), forensic speaker verification (Centre for Forensic Phonetics and Acoustics), forensic voice casework as a consultant with [JP French International](https://www.jpfrench.com/dr-thayabaran-kathiresan/), and enterprise IT (Tata Consultancy Services).
 
 I speak regularly on deepfake voice technology and its implications for security and society — most recently as an invited speaker at the Identity and Access Management Summits in Melbourne (2025) and Sydney (2026). I have also been an invited keynote speaker at the International Virtual Conference on Artificial Intelligence and Statistics (IVCAIS 2021), an invited expert in an international technology-transfer programme between the University of Zurich, Sweden and the National Institute of Informatics (NII), Japan, and a guest on Swiss national television (SRF *Einstein*) and radio explaining deepfake voice technology to a general audience.
 

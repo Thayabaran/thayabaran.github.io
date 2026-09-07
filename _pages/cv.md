@@ -64,6 +64,10 @@ AI research and innovation leader working at the intersection of artificial inte
   * Handled forensic casework using automatic speaker verification methods.
   * Investigated the influence of speaking style and deepfake voices on speaker recognition.
 
+**[JP French International](https://www.jpfrench.com/dr-thayabaran-kathiresan/)** — Forensic speech consultancy (Consulting)
+* Caseworker & Forensic Consultant
+  * Forensic voice analysis and expert casework, applying automatic speaker recognition, machine learning and speech processing.
+
 **ACTIONX** — Freelance
 * Data Science Advisor *(Mar 2021 – Nov 2021)*
 
@@ -114,14 +118,17 @@ AI research and innovation leader working at the intersection of artificial inte
 
 ## Grants & Funded Research
 
-**Grant held**
+**As named investigator**
 
-* **MS Australia** — *AI-assisted analysis of communication in MS using large language models*, Grant 24-IGR2-0321 (2025)
+* **MS Australia Incubator Grant 24-IGR2-0321** (2025, $24,950) — *[Language function in multiple sclerosis](https://www.msaustralia.org.au/project/language-function-in-multiple-sclerosis/)*. **Co-Investigator**; lead investigator Prof. Adam Vogel, with A/Prof. Anneke van der Walt, University of Melbourne. Uses digital speech assessment, AI and sentiment analysis on ACTIVE-MS data to detect early cognitive change in MS.
+
+**As project researcher**
+
+* **SNSF Project Funding** — *[The dynamics of indexical information in speech and its role in speech communication and speaker recognition](https://data.snf.ch/grants/person/673199)*, principal investigator Prof. Volker Dellwo, University of Zurich (Dec 2019 – Feb 2025, CHF 896,518). Employed on the grant as a researcher.
 
 **Doctoral funding**
 
 * **Forschungskredit Candoc Scholarship** — University of Zurich
-* **Swiss National Science Foundation (SNSF)** — Ph.D. research funding
 
 **Collaborator (not grant holder)**
 
