@@ -16,7 +16,7 @@ redirect_from:
 
 <p class="statement">Leading the development and translation of artificial intelligence technologies for the clinically meaningful measurement of speech and communication.</p>
 
-{% include figure-spectro.html %}
+{% include figure-hilbert.html %}
 
 ## About
 

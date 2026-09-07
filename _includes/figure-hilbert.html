@@ -1,0 +1,289 @@
+<div class="figure3d">
+  <canvas id="hilbert" tabindex="0" role="img"
+          aria-label="Interactive 3D plot of the analytic signal: a helix in time, real and Hilbert-transform axes."></canvas>
+  <div class="fig-controls">
+    <label class="ctl">
+      <span>Carrier</span>
+      <input type="range" id="h-carrier" min="4" max="26" step="1" value="13">
+      <output id="h-carrier-v">13</output>
+    </label>
+    <label class="ctl">
+      <span>Syllable rate</span>
+      <input type="range" id="h-mod" min="1" max="6" step="1" value="3">
+      <output id="h-mod-v">3</output>
+    </label>
+    <label class="ctl ctl--check">
+      <input type="checkbox" id="h-proj" checked>
+      <span>Projections</span>
+    </label>
+    <label class="ctl ctl--check">
+      <input type="checkbox" id="h-env">
+      <span>Envelope</span>
+    </label>
+    <span class="fig-hint">Drag to rotate &middot; scroll to zoom</span>
+  </div>
+  <div class="wave-legend">
+    <span>Analytic signal &middot; z(t) = x(t) + i&#8202;&#8459;{x}(t)</span>
+    <span>512-point FFT Hilbert transform</span>
+  </div>
+</div>
+
+<script>
+(function () {
+  var canvas = document.getElementById("hilbert");
+  if (!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext("2d");
+
+  var N = 512;
+  var az = -0.72, el = 0.34, zoom = 1;
+  var dragging = false, lastX = 0, lastY = 0;
+
+  // ---------- radix-2 FFT, in place -----------------------------------
+  function fft(re, im, inverse) {
+    var n = re.length, i, j = 0, k, m, t;
+    for (i = 0; i < n - 1; i++) {
+      if (i < j) { t = re[i]; re[i] = re[j]; re[j] = t; t = im[i]; im[i] = im[j]; im[j] = t; }
+      k = n >> 1;
+      while (k <= j) { j -= k; k >>= 1; }
+      j += k;
+    }
+    for (m = 2; m <= n; m <<= 1) {
+      var ang = (inverse ? 2 : -2) * Math.PI / m;
+      var wr = Math.cos(ang), wi = Math.sin(ang);
+      for (i = 0; i < n; i += m) {
+        var cr = 1, ci = 0;
+        for (k = 0; k < m / 2; k++) {
+          var a = i + k, b = i + k + m / 2;
+          var tr = cr * re[b] - ci * im[b];
+          var ti = cr * im[b] + ci * re[b];
+          re[b] = re[a] - tr; im[b] = im[a] - ti;
+          re[a] += tr;        im[a] += ti;
+          var ncr = cr * wr - ci * wi;
+          ci = cr * wi + ci * wr; cr = ncr;
+        }
+      }
+    }
+    if (inverse) for (i = 0; i < n; i++) { re[i] /= n; im[i] /= n; }
+  }
+
+  // ---------- signal and its analytic form ----------------------------
+  var sig = { x: [], h: [], env: [], max: 1 };
+
+  function build(carrier, modRate) {
+    var re = new Float64Array(N), im = new Float64Array(N), i, t;
+    for (i = 0; i < N; i++) {
+      t = i / N;
+      var syl = Math.pow(0.5 - 0.5 * Math.cos(2 * Math.PI * modRate * t), 0.7);
+      var envv = 0.22 + 0.78 * syl;
+      re[i] = envv * Math.cos(2 * Math.PI * carrier * t);
+      im[i] = 0;
+    }
+    var x = Array.prototype.slice.call(re);
+
+    // Hilbert: zero the negative frequencies, double the positive ones
+    fft(re, im, false);
+    for (i = 0; i < N; i++) {
+      var g = (i === 0 || i === N / 2) ? 1 : (i < N / 2 ? 2 : 0);
+      re[i] *= g; im[i] *= g;
+    }
+    fft(re, im, true);
+
+    sig.x = x;
+    sig.h = Array.prototype.slice.call(im);   // imaginary part = Hilbert transform
+    sig.env = [];
+    var mx = 0;
+    for (i = 0; i < N; i++) {
+      var a = Math.hypot(sig.x[i], sig.h[i]);
+      sig.env.push(a);
+      if (a > mx) mx = a;
+    }
+    sig.max = mx || 1;
+  }
+
+  // ---------- projection ----------------------------------------------
+  var cx, cy, scale;
+  function project(X, Y, Z) {
+    var ca = Math.cos(az), sa = Math.sin(az);
+    var x1 = X * ca - Y * sa;
+    var y1 = X * sa + Y * ca;
+    var ce = Math.cos(el), se = Math.sin(el);
+    var y2 = y1 * ce - Z * se;
+    var z2 = y1 * se + Z * ce;
+    var p = 1 / (1 + y2 * 0.16);
+    return [cx + x1 * scale * p, cy - z2 * scale * p, y2];
+  }
+
+  function line(a, b) { ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); }
+
+  function draw() {
+    var dpr = window.devicePixelRatio || 1;
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    if (!w || !h) return;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+
+    var cs = getComputedStyle(document.documentElement);
+    var accent = (cs.getPropertyValue("--accent") || "").trim() || "#0f6b63";
+    var ink    = (cs.getPropertyValue("--ink")    || "").trim() || "#14181a";
+    var rule   = (cs.getPropertyValue("--rule")   || "").trim() || "#dbded9";
+    var faint  = (cs.getPropertyValue("--faint")  || "").trim() || "#8a938f";
+
+    cx = w / 2; cy = h / 2 + h * 0.04;
+    scale = Math.min(w, h * 2.0) * 0.29 * zoom;
+
+    // --- box: 12 edges, back half solid, front half lighter -----------
+    var V = [];
+    for (var s = 0; s < 8; s++) {
+      V.push(project((s & 1) ? 1 : -1, (s & 2) ? 1 : -1, (s & 4) ? 1 : -1));
+    }
+    var E = [[0,1],[2,3],[4,5],[6,7],[0,2],[1,3],[4,6],[5,7],[0,4],[1,5],[2,6],[3,7]];
+    ctx.lineWidth = 1;
+    for (var e = 0; e < E.length; e++) {
+      var a = V[E[e][0]], b = V[E[e][1]];
+      ctx.strokeStyle = rule;
+      ctx.globalAlpha = ((a[2] + b[2]) / 2 > 0) ? 0.45 : 0.9;
+      line(a, b);
+    }
+    ctx.globalAlpha = 1;
+
+    // dotted grid on the floor (Z = -1) and the back wall (Y = +1)
+    ctx.strokeStyle = rule; ctx.globalAlpha = 0.75;
+    ctx.setLineDash([1, 3]);
+    for (var g = -1; g <= 1.001; g += 0.5) {
+      line(project(g, -1, -1), project(g, 1, -1));
+      line(project(-1, g, -1), project(1, g, -1));
+      line(project(g, 1, -1), project(g, 1, 1));
+      line(project(-1, 1, g), project(1, 1, g));
+    }
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+
+    var showProj = document.getElementById("h-proj").checked;
+    var showEnv = document.getElementById("h-env").checked;
+
+    function trace(fn, stroke, alpha, width) {
+      ctx.strokeStyle = stroke; ctx.globalAlpha = alpha; ctx.lineWidth = width;
+      ctx.beginPath();
+      for (var i = 0; i < N; i++) {
+        var p = fn(i);
+        if (i === 0) ctx.moveTo(p[0], p[1]); else ctx.lineTo(p[0], p[1]);
+      }
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+    }
+
+    function T(i) { return 2 * i / (N - 1) - 1; }
+
+    if (showProj) {
+      // real part, x_r(t), cast down onto the floor
+      trace(function (i) { return project(T(i), sig.x[i] / sig.max, -1); }, ink, 0.55, 1);
+      // Hilbert transform, x_i(t), cast onto the back wall
+      trace(function (i) { return project(T(i), 1, sig.h[i] / sig.max); }, ink, 0.55, 1);
+    }
+
+    if (showEnv) {
+      // ±|z(t)| — the envelope the helix's radius traces out
+      ctx.setLineDash([3, 3]);
+      trace(function (i) { return project(T(i), sig.env[i] / sig.max, -1); }, accent, 0.8, 1.2);
+      trace(function (i) { return project(T(i), -sig.env[i] / sig.max, -1); }, accent, 0.8, 1.2);
+      ctx.setLineDash([]);
+    }
+
+    // --- the analytic signal: a helix through time --------------------
+    ctx.lineWidth = 1.7;
+    for (var j = 0; j < N - 1; j++) {
+      var p1 = project(2 * j / (N - 1) - 1, sig.x[j] / sig.max, sig.h[j] / sig.max);
+      var p2 = project(2 * (j + 1) / (N - 1) - 1, sig.x[j + 1] / sig.max, sig.h[j + 1] / sig.max);
+      var depth = (p1[2] + p2[2]) / 2;
+      ctx.strokeStyle = accent;
+      ctx.globalAlpha = 0.42 + 0.5 * (1 - (depth + 1.6) / 3.2);
+      ctx.beginPath(); ctx.moveTo(p1[0], p1[1]); ctx.lineTo(p2[0], p2[1]); ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    // --- axis labels ---------------------------------------------------
+    ctx.fillStyle = faint;
+    ctx.font = '500 9px "IBM Plex Mono", ui-monospace, monospace';
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    var lt = project(0, -1.38, -1.24); ctx.fillText("TIME", lt[0], lt[1]);
+    var lx = project(1.36, 0, -1.26);  ctx.fillText("REAL  x", lx[0], lx[1]);
+    var lz = project(-1.30, -1.30, 0); ctx.fillText("IMAG  H{x}", lz[0], lz[1]);
+
+    ctx.fillStyle = accent;
+    var lh = project(-1, sig.x[0] / sig.max, sig.h[0] / sig.max);
+    ctx.textAlign = "right";
+    ctx.fillText("z(t)", lh[0] - 6, lh[1]);
+  }
+
+  // ---------- interaction ---------------------------------------------
+  function pointer(ev) { return ev.touches ? ev.touches[0] : ev; }
+
+  canvas.addEventListener("mousedown", function (e) {
+    dragging = true; lastX = e.clientX; lastY = e.clientY; canvas.style.cursor = "grabbing";
+  });
+  window.addEventListener("mouseup", function () { dragging = false; canvas.style.cursor = "grab"; });
+  window.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    az += (e.clientX - lastX) * 0.01;
+    el += (e.clientY - lastY) * 0.008;
+    el = Math.max(-1.3, Math.min(1.3, el));
+    lastX = e.clientX; lastY = e.clientY;
+    draw();
+  });
+  canvas.addEventListener("touchstart", function (e) {
+    var p = pointer(e); dragging = true; lastX = p.clientX; lastY = p.clientY;
+  }, { passive: true });
+  canvas.addEventListener("touchmove", function (e) {
+    if (!dragging) return;
+    var p = pointer(e);
+    az += (p.clientX - lastX) * 0.01;
+    el = Math.max(-1.3, Math.min(1.3, el + (p.clientY - lastY) * 0.008));
+    lastX = p.clientX; lastY = p.clientY;
+    draw();
+    e.preventDefault();
+  }, { passive: false });
+  window.addEventListener("touchend", function () { dragging = false; });
+
+  canvas.addEventListener("wheel", function (e) {
+    zoom = Math.max(0.6, Math.min(2.2, zoom * (e.deltaY > 0 ? 0.94 : 1.06)));
+    draw();
+    e.preventDefault();
+  }, { passive: false });
+
+  canvas.addEventListener("keydown", function (e) {
+    var step = 0.12;
+    if (e.key === "ArrowLeft")  { az -= step; draw(); e.preventDefault(); }
+    if (e.key === "ArrowRight") { az += step; draw(); e.preventDefault(); }
+    if (e.key === "ArrowUp")    { el = Math.min(1.3, el + step); draw(); e.preventDefault(); }
+    if (e.key === "ArrowDown")  { el = Math.max(-1.3, el - step); draw(); e.preventDefault(); }
+  });
+
+  function rebuild() {
+    var c = +document.getElementById("h-carrier").value;
+    var m = +document.getElementById("h-mod").value;
+    document.getElementById("h-carrier-v").textContent = c;
+    document.getElementById("h-mod-v").textContent = m;
+    build(c, m);
+    draw();
+  }
+
+  document.getElementById("h-carrier").addEventListener("input", rebuild);
+  document.getElementById("h-mod").addEventListener("input", rebuild);
+  document.getElementById("h-proj").addEventListener("change", draw);
+
+  canvas.style.cursor = "grab";
+  rebuild();
+
+  var timer;
+  window.addEventListener("resize", function () { clearTimeout(timer); timer = setTimeout(draw, 120); });
+  if (window.MutationObserver) {
+    new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  }
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (mq.addEventListener) mq.addEventListener("change", function () { setTimeout(draw, 40); });
+  }
+})();
+</script>
