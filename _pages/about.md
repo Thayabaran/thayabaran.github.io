@@ -82,6 +82,8 @@ I contribute to the development and leadership of collaborative research program
 - **MS Australia Incubator Grant 24-IGR2-0321** (2025) — *[Language function in multiple sclerosis](https://www.msaustralia.org.au/project/language-function-in-multiple-sclerosis/)*, as **Co-Investigator** with lead investigator Prof. Adam Vogel. Digital speech assessment, AI and sentiment analysis applied to detect early cognitive change in multiple sclerosis.
 - **SNSF Project Funding** — *[The dynamics of indexical information in speech](https://data.snf.ch/grants/person/673199)* (PI Prof. Volker Dellwo, University of Zurich, 2019–2025), on which I was employed as a researcher.
 
+- **NCCR Evolving Language** (SNSF National Centre of Competence in Research) — **external collaborator** on the Cooperation Project's *WP Accommodation* work package (PIs Burkart and Dellwo), contributing acoustic-variation methods and the dynamic auditory template matching model of vocal accommodation, tested on marmoset vocalisations. [(Year 1–3 report)](https://evolvinglanguage.ch/wp-content/uploads/NCCR-Report-Y3-.pdf)
+
 I also contribute to research programs led by others and funded by the **NHMRC**, **MRFF** and **ARC**, as a collaborator rather than a named grant holder.
 
 I am particularly interested in collaborations involving clinical AI, digital biomarkers, speech and language technologies, neurological and neurodevelopmental disorders, multimodal biomarkers, and AI-enabled clinical outcome measures.

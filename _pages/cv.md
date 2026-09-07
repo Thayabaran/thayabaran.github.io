@@ -130,6 +130,10 @@ AI research and innovation leader working at the intersection of artificial inte
 
 * **SNSF Project Funding** — *[The dynamics of indexical information in speech and its role in speech communication and speaker recognition](https://data.snf.ch/grants/person/673199)*, principal investigator Prof. Volker Dellwo, University of Zurich (Dec 2019 – Feb 2025, CHF 896,518). Employed on the grant as a researcher.
 
+**As external collaborator**
+
+* **NCCR Evolving Language** (Swiss National Centre of Competence in Research, SNSF) — Cooperation Project, *WP Accommodation*. Listed as **External Collaborator** (affiliated with Telepathy Labs) in the [NCCR Year 1–3 report](https://evolvinglanguage.ch/wp-content/uploads/NCCR-Report-Y3-.pdf), on a work package led by PIs Burkart and Dellwo with collaborating PIs Stoll and van Schaik. Contributed to a method comparison for measuring acoustic variation and to the dynamic auditory template matching model, which gave the best mechanistic account of vocal accommodation when applied to marmoset vocalisations.
+
 **Collaborator (not grant holder)**
 
 * Contributor to research programs led by others and funded by the **NHMRC**, **MRFF** and **ARC**
