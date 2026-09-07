@@ -38,7 +38,7 @@
   var az = -0.72, el = 0.34, zoom = 1;
   var dragging = false, lastX = 0, lastY = 0;
 
-  // ---------- radix-2 FFT, in place -----------------------------------
+  /* ---------- radix-2 FFT, in place */
   function fft(re, im, inverse) {
     var n = re.length, i, j = 0, k, m, t;
     for (i = 0; i < n - 1; i++) {
@@ -66,7 +66,7 @@
     if (inverse) for (i = 0; i < n; i++) { re[i] /= n; im[i] /= n; }
   }
 
-  // ---------- signal and its analytic form ----------------------------
+  /* ---------- signal and its analytic form */
   var sig = { x: [], h: [], env: [], max: 1 };
 
   function build(carrier, modRate) {
@@ -80,7 +80,7 @@
     }
     var x = Array.prototype.slice.call(re);
 
-    // Hilbert: zero the negative frequencies, double the positive ones
+    /* Hilbert: zero the negative frequencies, double the positive ones */
     fft(re, im, false);
     for (i = 0; i < N; i++) {
       var g = (i === 0 || i === N / 2) ? 1 : (i < N / 2 ? 2 : 0);
@@ -89,7 +89,7 @@
     fft(re, im, true);
 
     sig.x = x;
-    sig.h = Array.prototype.slice.call(im);   // imaginary part = Hilbert transform
+    sig.h = Array.prototype.slice.call(im); /* imaginary part = Hilbert transform */
     sig.env = [];
     var mx = 0;
     for (i = 0; i < N; i++) {
@@ -100,7 +100,7 @@
     sig.max = mx || 1;
   }
 
-  // ---------- projection ----------------------------------------------
+  /* ---------- projection */
   var cx, cy, scale;
   function project(X, Y, Z) {
     var ca = Math.cos(az), sa = Math.sin(az);
@@ -133,7 +133,7 @@
     cx = w / 2; cy = h / 2 + h * 0.04;
     scale = Math.min(w, h * 2.0) * 0.29 * zoom;
 
-    // --- box: 12 edges, back half solid, front half lighter -----------
+    /* --- box: 12 edges, back half solid, front half lighter */
     var V = [];
     for (var s = 0; s < 8; s++) {
       V.push(project((s & 1) ? 1 : -1, (s & 2) ? 1 : -1, (s & 4) ? 1 : -1));
@@ -148,7 +148,7 @@
     }
     ctx.globalAlpha = 1;
 
-    // dotted grid on the floor (Z = -1) and the back wall (Y = +1)
+    /* dotted grid on the floor (Z = -1) and the back wall (Y = +1) */
     ctx.strokeStyle = rule; ctx.globalAlpha = 0.75;
     ctx.setLineDash([1, 3]);
     for (var g = -1; g <= 1.001; g += 0.5) {
@@ -177,21 +177,21 @@
     function T(i) { return 2 * i / (N - 1) - 1; }
 
     if (showProj) {
-      // real part, x_r(t), cast down onto the floor
+      /* real part, x_r(t), cast down onto the floor */
       trace(function (i) { return project(T(i), sig.x[i] / sig.max, -1); }, ink, 0.55, 1);
-      // Hilbert transform, x_i(t), cast onto the back wall
+      /* Hilbert transform, x_i(t), cast onto the back wall */
       trace(function (i) { return project(T(i), 1, sig.h[i] / sig.max); }, ink, 0.55, 1);
     }
 
     if (showEnv) {
-      // ±|z(t)| — the envelope the helix's radius traces out
+      /* ±|z(t)| — the envelope the helix's radius traces out */
       ctx.setLineDash([3, 3]);
       trace(function (i) { return project(T(i), sig.env[i] / sig.max, -1); }, accent, 0.8, 1.2);
       trace(function (i) { return project(T(i), -sig.env[i] / sig.max, -1); }, accent, 0.8, 1.2);
       ctx.setLineDash([]);
     }
 
-    // --- the analytic signal: a helix through time --------------------
+    /* --- the analytic signal: a helix through time */
     ctx.lineWidth = 1.7;
     for (var j = 0; j < N - 1; j++) {
       var p1 = project(2 * j / (N - 1) - 1, sig.x[j] / sig.max, sig.h[j] / sig.max);
@@ -203,7 +203,7 @@
     }
     ctx.globalAlpha = 1;
 
-    // --- axis labels ---------------------------------------------------
+    /* --- axis labels */
     ctx.fillStyle = faint;
     ctx.font = '500 9px "IBM Plex Mono", ui-monospace, monospace';
     ctx.textAlign = "center"; ctx.textBaseline = "middle";
@@ -217,7 +217,7 @@
     ctx.fillText("z(t)", lh[0] - 6, lh[1]);
   }
 
-  // ---------- interaction ---------------------------------------------
+  /* ---------- interaction */
   function pointer(ev) { return ev.touches ? ev.touches[0] : ev; }
 
   canvas.addEventListener("mousedown", function (e) {
@@ -275,6 +275,13 @@
 
   canvas.style.cursor = "grab";
   rebuild();
+
+  /* the canvas is sized by CSS, so redraw once it actually has a box */
+  if (window.ResizeObserver) {
+    new ResizeObserver(function () { draw(); }).observe(canvas);
+  }
+  window.addEventListener("load", function () { draw(); });
+  requestAnimationFrame(function () { draw(); });
 
   var timer;
   window.addEventListener("resize", function () { clearTimeout(timer); timer = setTimeout(draw, 120); });

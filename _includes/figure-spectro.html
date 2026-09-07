@@ -12,12 +12,12 @@
   if (!canvas || !canvas.getContext) return;
   var ctx = canvas.getContext("2d");
 
-  var SLICES = 46;      // spectral frames stacked through time
-  var POINTS = 150;     // frequency bins per frame
-  var FMAX   = 5000;    // Hz
-  var DUR    = 2.4;     // s
+  var SLICES = 46; /* spectral frames stacked through time */
+  var POINTS = 150; /* frequency bins per frame */
+  var FMAX   = 5000; /* Hz */
+  var DUR    = 2.4; /* s */
 
-  // A vowel-to-vowel transition: formants glide, as they do in running speech.
+  /* A vowel-to-vowel transition: formants glide, as they do in running speech. */
   function formants(u) {
     var ease = u * u * (3 - 2 * u);
     return [
@@ -28,16 +28,16 @@
     ];
   }
 
-  // Spectral envelope in dB: resonances over a -6 dB/octave source tilt.
+  /* Spectral envelope in dB: resonances over a -6 dB/octave source tilt. */
   function levelAt(hz, u) {
     var F = formants(u), m = 0;
     for (var i = 0; i < F.length; i++) {
       var d = (hz - F[i].f) / F[i].b;
       m += F[i].a / (1 + d * d);
     }
-    m *= 1 / (1 + hz / 900);                       // source spectral tilt
+    m *= 1 / (1 + hz / 900); /* source spectral tilt */
     var db = 20 * Math.log10(m + 1e-4);
-    return Math.max(0, Math.min(1, (db + 58) / 58)); // normalise to 0..1
+    return Math.max(0, Math.min(1, (db + 58) / 58)); /* normalise to 0..1 */
   }
 
   function draw() {
@@ -57,17 +57,17 @@
     var paper  = (cs.getPropertyValue("--paper")  || "").trim() || "#f4f5f3";
 
     var padL = w * 0.085, padR = w * 0.03;
-    var FX = (w - padL - padR) * 0.74;   // frequency axis length
-    var DX = (w - padL - padR) * 0.26;   // time axis, receding right
-    var DY = h * 0.30;                   // time axis, receding up
-    var AY = h * 0.40;                   // intensity
+    var FX = (w - padL - padR) * 0.74; /* frequency axis length */
+    var DX = (w - padL - padR) * 0.26; /* time axis, receding right */
+    var DY = h * 0.30; /* time axis, receding up */
+    var AY = h * 0.40; /* intensity */
     var ox = padL, oy = h * 0.86;
 
     function P(fn, tn, a) {
       return [ox + fn * FX + tn * DX, oy - tn * DY - a * AY];
     }
 
-    // ---- base plane -----------------------------------------------------
+    /* ---- base plane */
     ctx.beginPath();
     var c0 = P(0, 0, 0), c1 = P(1, 0, 0), c2 = P(1, 1, 0), c3 = P(0, 1, 0);
     ctx.moveTo(c0[0], c0[1]); ctx.lineTo(c1[0], c1[1]);
@@ -75,7 +75,7 @@
     ctx.closePath();
     ctx.strokeStyle = rule; ctx.lineWidth = 1; ctx.stroke();
 
-    // intensity axis with dB ticks
+    /* intensity axis with dB ticks */
     ctx.strokeStyle = rule;
     ctx.beginPath();
     var a0 = P(0, 1, 0), a1 = P(0, 1, 1);
@@ -94,7 +94,7 @@
       ctx.fillText(tick[1], p[0] - 6, p[1]);
     });
 
-    // frequency ticks along the front edge
+    /* frequency ticks along the front edge */
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
     [[0, "0"], [0.2, "1k"], [0.4, "2k"], [0.6, "3k"], [0.8, "4k"], [1, "5k"]].forEach(function (tick) {
@@ -105,7 +105,7 @@
       ctx.fillText(tick[1], p[0], p[1] + 6);
     });
 
-    // ---- waterfall: back to front, each frame occluding the last --------
+    /* ---- waterfall: back to front, each frame occluding the last */
     for (var s = SLICES - 1; s >= 0; s--) {
       var tn = s / (SLICES - 1);
       var u = tn;
@@ -115,7 +115,7 @@
         var p = P(fn, tn, levelAt(fn * FMAX, u));
         if (i === 0) ctx.moveTo(p[0], p[1]); else ctx.lineTo(p[0], p[1]);
       }
-      // close down to the base so the fill hides frames behind it
+      /* close down to the base so the fill hides frames behind it */
       var end = P(1, tn, 0), start = P(0, tn, 0);
       ctx.lineTo(end[0], end[1]);
       ctx.lineTo(start[0], start[1]);
@@ -132,7 +132,7 @@
       ctx.globalAlpha = 1;
     }
 
-    // ---- axis labels ----------------------------------------------------
+    /* ---- axis labels */
     ctx.fillStyle = faint;
     ctx.font = '500 9px "IBM Plex Mono", ui-monospace, monospace';
     ctx.textAlign = "center";
