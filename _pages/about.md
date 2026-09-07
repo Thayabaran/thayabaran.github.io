@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Thayabaran Kathiresan, Ph.D."
+title: "Dr. Thayabaran Kathiresan, Ph.D."
 author_profile: true
 redirect_from:
   - /about/
@@ -9,8 +9,9 @@ redirect_from:
 
 **AI Research & Innovation Leader** — Speech & Language AI · Digital Biomarkers · Clinical AI
 
-*Senior Director of Speech Analytics, [Redenlab](https://redenlab.com)*
-*Senior Postdoctoral Fellow, University of Melbourne*
+*Senior Director of Speech Analytics, [Redenlab](https://redenlab.com/people/thayabaran-kathiresan-phd/)* [0.8 FTE]
+
+*Senior Postdoctoral Fellow, [University of Melbourne](https://findanexpert.unimelb.edu.au/profile/1027702-thayabaran-kathiresan)* [0.2 FTE]
 
 Leading the development and translation of artificial intelligence technologies for the clinically meaningful measurement of speech and communication.
 
