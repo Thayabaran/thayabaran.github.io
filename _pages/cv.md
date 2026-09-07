@@ -118,6 +118,10 @@ AI research and innovation leader working at the intersection of artificial inte
 
 ## Grants & Funded Research
 
+**As project lead**
+
+* **Forschungskredit UZH (Candoc) FK-19-069** (Nov 2018 – Oct 2019) — *[How do infants identify their mothers by their voice: the role of temporal characteristics in infant-directed speech style](https://www.cl.uzh.ch/en/research-groups/phonetics/forschung/Voice/How-do-infants-identify-their-mothers-by-their-voice-The-role-of-temporal-characteristics-in-infant-directed-speech-style.html)*. Project lead, University of Zurich, with partners Volker Dellwo, Rushen Shi, Moritz Daum, Simon Townsend and Laura Dilley. Used automatic speaker recognition to test whether the expanded acoustic space of infant-directed speech makes individual mothers' voices more learnable.
+
 **As named investigator**
 
 * **MS Australia Incubator Grant 24-IGR2-0321** (2025, $24,950) — *[Language function in multiple sclerosis](https://www.msaustralia.org.au/project/language-function-in-multiple-sclerosis/)*. **Co-Investigator**; lead investigator Prof. Adam Vogel, with A/Prof. Anneke van der Walt, University of Melbourne. Uses digital speech assessment, AI and sentiment analysis on ACTIVE-MS data to detect early cognitive change in MS.
@@ -125,10 +129,6 @@ AI research and innovation leader working at the intersection of artificial inte
 **As project researcher**
 
 * **SNSF Project Funding** — *[The dynamics of indexical information in speech and its role in speech communication and speaker recognition](https://data.snf.ch/grants/person/673199)*, principal investigator Prof. Volker Dellwo, University of Zurich (Dec 2019 – Feb 2025, CHF 896,518). Employed on the grant as a researcher.
-
-**Doctoral funding**
-
-* **Forschungskredit Candoc Scholarship** — University of Zurich
 
 **Collaborator (not grant holder)**
 

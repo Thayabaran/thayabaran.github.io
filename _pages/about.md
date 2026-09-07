@@ -78,6 +78,7 @@ I contribute to the development and leadership of collaborative research program
 
 **Funded research**
 
+- **Forschungskredit UZH (Candoc) FK-19-069** (2018–2019) — *[How do infants identify their mothers by their voice](https://www.cl.uzh.ch/en/research-groups/phonetics/forschung/Voice/How-do-infants-identify-their-mothers-by-their-voice-The-role-of-temporal-characteristics-in-infant-directed-speech-style.html)*, as **project lead**. Automatic speaker recognition applied to test whether the expanded acoustic space of infant-directed speech makes individual mothers' voices more learnable.
 - **MS Australia Incubator Grant 24-IGR2-0321** (2025) — *[Language function in multiple sclerosis](https://www.msaustralia.org.au/project/language-function-in-multiple-sclerosis/)*, as **Co-Investigator** with lead investigator Prof. Adam Vogel. Digital speech assessment, AI and sentiment analysis applied to detect early cognitive change in multiple sclerosis.
 - **SNSF Project Funding** — *[The dynamics of indexical information in speech](https://data.snf.ch/grants/person/673199)* (PI Prof. Volker Dellwo, University of Zurich, 2019–2025), on which I was employed as a researcher.
 
@@ -89,7 +90,7 @@ I am particularly interested in collaborations involving clinical AI, digital bi
 
 Signal Processing & Engineering → Speech Science & Phonetics → Machine Learning & AI → Clinical Speech AI → Digital Biomarkers → AI Research & Innovation Leadership
 
-I completed my **Ph.D. *summa cum laude*** in Computational Linguistics / Phonetics and Speech Sciences at the **University of Zurich** (2015–2019), funded by a Forschungskredit Candoc Scholarship. Prior to that I held an ERASMUS MUNDUS fellowship, earning M.Sc. degrees from **KTH Royal Institute of Technology** (Stockholm) and **Universitat Politècnica de Catalunya** (Barcelona), following a B.Eng. in Electronics and Communications Engineering from Anna University, Chennai.
+I completed my **Ph.D. *summa cum laude*** in Computational Linguistics / Phonetics and Speech Sciences at the **University of Zurich** (2015–2019), funded by a Forschungskredit Candoc grant on which I was project lead. Prior to that I held an ERASMUS MUNDUS fellowship, earning M.Sc. degrees from **KTH Royal Institute of Technology** (Stockholm) and **Universitat Politècnica de Catalunya** (Barcelona), following a B.Eng. in Electronics and Communications Engineering from Anna University, Chennai.
 
 My professional experience spans clinical-trial speech technology (Redenlab), ASR research (Telepathy Labs, Zurich), COVID-19 vocal biomarker diagnostics (VoiceMed, Luxembourg), forensic speaker verification (Centre for Forensic Phonetics and Acoustics), forensic voice casework as a consultant with [JP French International](https://www.jpfrench.com/dr-thayabaran-kathiresan/), and enterprise IT (Tata Consultancy Services).
 
