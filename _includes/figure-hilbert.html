@@ -4,13 +4,13 @@
   <div class="fig-controls">
     <label class="ctl">
       <span>Carrier</span>
-      <input type="range" id="h-carrier" min="4" max="26" step="1" value="26">
-      <output id="h-carrier-v">26</output>
+      <input type="range" id="h-carrier" min="4" max="26" step="1" value="5">
+      <output id="h-carrier-v">5</output>
     </label>
     <label class="ctl">
       <span>Syllable rate</span>
-      <input type="range" id="h-mod" min="1" max="6" step="1" value="1">
-      <output id="h-mod-v">1</output>
+      <input type="range" id="h-mod" min="1" max="6" step="1" value="5">
+      <output id="h-mod-v">5</output>
     </label>
     <label class="ctl ctl--check">
       <input type="checkbox" id="h-proj" checked>
@@ -35,7 +35,7 @@
   var ctx = canvas.getContext("2d");
 
   var N = 512;
-  var az = -1.00, el = 0.36, zoom = 0.62;
+  var az = -0.42, el = 0.465, zoom = 0.574;
   var dragging = false, lastX = 0, lastY = 0;
 
   /* ---------- radix-2 FFT, in place */
