@@ -1,0 +1,411 @@
+/* ==========================================================================
+   CUSTOM THEME — minimal researcher
+   Imported last so it overrides the academicpages defaults.
+   Palette, typography and rules match the approved design mockup.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Tokens
+   -------------------------------------------------------------------------- */
+
+:root {
+  --paper:   #f4f5f3;
+  --raised:  #ebede9;
+  --ink:     #14181a;
+  --muted:   #5c6663;
+  --faint:   #8a938f;
+  --rule:    #dbded9;
+  --accent:  #0f6b63;
+
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-sans:  "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono:  "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* remap the theme's own variables onto the palette */
+  --global-base-color                : var(--accent);
+  --global-bg-color                  : var(--paper);
+  --global-footer-bg-color           : var(--paper);
+  --global-border-color              : var(--rule);
+  --global-dark-border-color         : var(--rule);
+  --global-code-background-color     : var(--raised);
+  --global-code-text-color           : var(--ink);
+  --global-fig-caption-color         : var(--faint);
+  --global-link-color                : var(--accent);
+  --global-link-color-hover          : var(--ink);
+  --global-link-color-visited        : var(--accent);
+  --global-masthead-link-color       : var(--muted);
+  --global-masthead-link-color-hover : var(--accent);
+  --global-text-color                : var(--ink);
+  --global-text-color-light          : var(--muted);
+  --global-thead-color               : var(--raised);
+}
+
+html[data-theme="dark"] {
+  --paper:   #101413;
+  --raised:  #171c1b;
+  --ink:     #e9ece8;
+  --muted:   #a0aaa5;
+  --faint:   #737d79;
+  --rule:    #2a312f;
+  --accent:  #56b7a9;
+
+  --global-base-color                : var(--accent);
+  --global-bg-color                  : var(--paper);
+  --global-footer-bg-color           : var(--paper);
+  --global-border-color              : var(--rule);
+  --global-dark-border-color         : var(--rule);
+  --global-code-background-color     : var(--raised);
+  --global-code-text-color           : var(--ink);
+  --global-fig-caption-color         : var(--faint);
+  --global-link-color                : var(--accent);
+  --global-link-color-hover          : var(--ink);
+  --global-link-color-visited        : var(--accent);
+  --global-masthead-link-color       : var(--muted);
+  --global-masthead-link-color-hover : var(--accent);
+  --global-text-color                : var(--ink);
+  --global-text-color-light          : var(--muted);
+  --global-thead-color               : var(--raised);
+}
+
+/* --------------------------------------------------------------------------
+   Base typography
+   -------------------------------------------------------------------------- */
+
+html { background-color: var(--paper); }
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.page__content,
+.page__content p,
+.page__content li,
+.archive__item-excerpt,
+.author__bio {
+  font-family: var(--font-sans);
+}
+
+.page__content {
+  font-size: 1.0625rem;
+  line-height: 1.62;
+}
+
+.page__content p,
+.page__content li {
+  max-width: 68ch;
+}
+
+h1, h2, h3, h4, h5, h6,
+.page__title,
+.archive__item-title,
+.author__name {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+  color: var(--ink);
+}
+
+.page__title {
+  font-size: clamp(2.1rem, 5vw, 3.1rem);
+  line-height: 1.06;
+  letter-spacing: -0.018em;
+  margin-bottom: 1.1rem;
+  border-bottom: none;
+}
+
+.page__content h2 {
+  font-size: 1.7rem;
+  line-height: 1.18;
+  margin-top: 2.75rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--rule);
+}
+
+.page__content h3 {
+  font-size: 1.3rem;
+  margin-top: 1.9rem;
+}
+
+.page__content strong { font-weight: 600; }
+
+/* Links: quiet underline that firms up on hover */
+.page__content a,
+.archive__item-excerpt a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+.page__content a:hover,
+.archive__item-excerpt a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Masthead / navigation
+   -------------------------------------------------------------------------- */
+
+.masthead {
+  background-color: var(--paper);
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead__menu-item a,
+.greedy-nav a {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.greedy-nav {
+  background-color: transparent;
+}
+
+.greedy-nav a:hover { color: var(--accent); }
+
+.greedy-nav .site-title {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.greedy-nav__toggle,
+.greedy-nav .visible-links a:before { background: transparent; }
+
+/* --------------------------------------------------------------------------
+   Sidebar author profile — the portrait column
+   -------------------------------------------------------------------------- */
+
+.sidebar { font-size: 0.9rem; }
+
+.author__avatar {
+  border-top: 2px solid var(--ink);
+  padding-top: 1rem;
+  display: block;
+}
+
+.author__avatar img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  border-radius: 0;
+  border: none;
+  filter: grayscale(1) contrast(1.04);
+  background: var(--raised);
+}
+
+.author__name {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin: 0.9rem 0 0.35rem;
+}
+
+.author__bio {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+}
+
+.author__urls-wrapper button {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  border-color: var(--rule);
+  color: var(--ink);
+  border-radius: 0;
+}
+
+.author__urls {
+  border: none;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.75rem;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.author__urls li { padding: 0.18rem 0; }
+
+.author__urls a {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  text-decoration: none;
+}
+.author__urls a:hover { color: var(--accent); text-decoration: none; }
+
+/* --------------------------------------------------------------------------
+   Archive items — publications, talks
+   -------------------------------------------------------------------------- */
+
+.archive__subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.6rem;
+  margin-top: 2.5rem;
+}
+
+.list__item .archive__item {
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.list__item:last-child .archive__item {
+  border-bottom: 1px solid var(--rule);
+}
+
+.archive__item-title {
+  font-size: 1.22rem;
+  line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+  border-bottom: none;
+}
+
+.archive__item-title a { border-bottom: none; }
+
+.archive__item-excerpt {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+.page__meta,
+.page__date,
+.archive__item .page__meta {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+   Landing-page header block (set in about.md)
+   -------------------------------------------------------------------------- */
+
+.lede {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  max-width: 34ch;
+  margin: 0 0 1.5rem;
+}
+.lede em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.roles {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.7rem;
+  max-width: 44rem;
+}
+.roles li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.9rem;
+  max-width: none;
+}
+.roles .fte {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.statement {
+  font-family: var(--font-serif);
+  font-size: 1.28rem;
+  font-weight: 300;
+  line-height: 1.5;
+  max-width: 46ch;
+  margin: 0;
+}
+
+/* Speech amplitude envelope divider */
+.wave { margin: 2.5rem 0 0.5rem; }
+.wave canvas { display: block; width: 100%; height: 74px; }
+.wave-legend {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--faint);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.page__footer {
+  background-color: var(--paper);
+  border-top: 1px solid var(--rule);
+  color: var(--faint);
+}
+.page__footer footer { font-size: 0.8rem; }
+.page__footer a { color: var(--muted); }
+.page__footer a:hover { color: var(--accent); }
+
+/* --------------------------------------------------------------------------
+   Trim theme decoration that fights the minimal look
+   -------------------------------------------------------------------------- */
+
+.page__content blockquote {
+  border-left: 2px solid var(--accent);
+  font-style: normal;
+  color: var(--muted);
+}
+
+.notice, .notice--info, .notice--warning, .notice--success, .notice--danger {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.btn {
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: none;
+}
+
+hr { border-color: var(--rule); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
