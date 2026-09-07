@@ -1,0 +1,146 @@
+<div class="wave">
+  <canvas id="wave" aria-hidden="true"></canvas>
+  <div class="wave-legend">
+    <span>Spectro-temporal decomposition</span>
+    <span>time &rarr; &middot; harmonics &nearr; &middot; amplitude &uarr;</span>
+  </div>
+</div>
+
+<script>
+(function () {
+  var canvas = document.getElementById("wave");
+  if (!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext("2d");
+
+  var N = 7;                                   // harmonics drawn in depth
+  var amps = [], freqs = [];
+  for (var i = 0; i < N; i++) {
+    amps.push(1 / Math.pow(i + 1, 1.05));      // 1/n roll-off, glottal-source-like
+    freqs.push((i + 1) * 2.1);                 // cycles across the time axis
+  }
+
+  function draw() {
+    var dpr = window.devicePixelRatio || 1;
+    var w = canvas.clientWidth;
+    var h = canvas.clientHeight;
+    if (!w || !h) return;
+
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+
+    var cs = getComputedStyle(document.documentElement);
+    var accent = (cs.getPropertyValue("--accent") || "").trim() || "#0f6b63";
+    var ink    = (cs.getPropertyValue("--ink")    || "").trim() || "#14181a";
+    var rule   = (cs.getPropertyValue("--rule")   || "").trim() || "#dbded9";
+
+    var pad    = 6;
+    var depthX = w * 0.20;
+    var depthY = -h * 0.34;
+    var timeX  = w - depthX - pad * 7;
+    var ox     = pad + w * 0.015;
+    var oy     = h * 0.70;
+    var ampY   = h * 0.15;
+
+    // Oblique projection: t along x, harmonic index into depth, amplitude up.
+    function P(t, k, a) {
+      return [ox + t * timeX + k * depthX, oy + k * depthY - a * ampY];
+    }
+    function moveTo(p) { ctx.moveTo(p[0], p[1]); }
+    function lineTo(p) { ctx.lineTo(p[0], p[1]); }
+
+    // --- zero-amplitude plane -------------------------------------------
+    ctx.beginPath();
+    moveTo(P(0, 0, 0)); lineTo(P(1, 0, 0)); lineTo(P(1, 1, 0)); lineTo(P(0, 1, 0));
+    ctx.closePath();
+    ctx.fillStyle = rule;
+    ctx.globalAlpha = 0.22;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = rule;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // --- frequency plane at the far edge of time ------------------------
+    ctx.beginPath();
+    moveTo(P(1, 0, -1.15)); lineTo(P(1, 0, 1.5)); lineTo(P(1, 1, 1.5)); lineTo(P(1, 1, -1.15));
+    ctx.closePath();
+    ctx.fillStyle = rule;
+    ctx.globalAlpha = 0.14;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = rule;
+    ctx.stroke();
+
+    // --- harmonic components, far to near -------------------------------
+    ctx.lineWidth = 1.25;
+    for (var n = N - 1; n >= 0; n--) {
+      var k = n / (N - 1);
+      ctx.beginPath();
+      for (var s = 0; s <= 220; s++) {
+        var t = s / 220;
+        var a = amps[n] * Math.sin(2 * Math.PI * freqs[n] * t);
+        var p = P(t, k, a);
+        if (s === 0) moveTo(p); else lineTo(p);
+      }
+      ctx.strokeStyle = accent;
+      ctx.globalAlpha = 0.24 + 0.46 * (1 - k);
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    // --- composite waveform, nearest plane ------------------------------
+    ctx.beginPath();
+    for (var s2 = 0; s2 <= 320; s2++) {
+      var t2 = s2 / 320;
+      var sum = 0;
+      for (var m = 0; m < N; m++) sum += amps[m] * Math.sin(2 * Math.PI * freqs[m] * t2);
+      var p2 = P(t2, -0.17, sum * 0.62);
+      if (s2 === 0) moveTo(p2); else lineTo(p2);
+    }
+    ctx.strokeStyle = ink;
+    ctx.lineWidth = 1.6;
+    ctx.stroke();
+
+    // --- line spectrum on the frequency plane ---------------------------
+    var tS = 1.0;
+    ctx.strokeStyle = rule;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    moveTo(P(tS, 0, 0)); lineTo(P(tS, 1, 0));
+    ctx.stroke();
+
+    ctx.strokeStyle = accent;
+    ctx.fillStyle = accent;
+    ctx.lineWidth = 2;
+    for (var q = 0; q < N; q++) {
+      var kq = q / (N - 1);
+      var base = P(tS, kq, 0);
+      var top = P(tS, kq, amps[q] * 1.45);
+      ctx.beginPath();
+      moveTo(base); lineTo(top);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(top[0], top[1], 1.9, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  draw();
+  var timer;
+  window.addEventListener("resize", function () {
+    clearTimeout(timer);
+    timer = setTimeout(draw, 120);
+  });
+  if (window.MutationObserver) {
+    new MutationObserver(draw).observe(document.documentElement, {
+      attributes: true, attributeFilter: ["data-theme"]
+    });
+  }
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (mq.addEventListener) mq.addEventListener("change", function () { setTimeout(draw, 40); });
+  }
+})();
+</script>
