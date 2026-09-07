@@ -146,6 +146,7 @@ AI research and innovation leader working at the intersection of artificial inte
 * **Invited Expert** — international technology transfer between the University of Zurich, Sweden and the National Institute of Informatics (NII), Japan
 * **Swiss national television** — guest on SRF *Einstein* demonstrating deepfake voice technology
 * **Swiss national radio** — guest speaker on SRF Radio on deepfake voice technology
+* **Panellist** — [Openhack, *COVIDians & Their Solutions* ep. 4: VoiceMed](https://www.openhack.io/events/2020/6/16/covidians-amp-their-solutions-episode-4-voicemed) (2020)
 
 ---
 
