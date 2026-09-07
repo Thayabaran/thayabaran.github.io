@@ -85,7 +85,7 @@ I completed my **Ph.D. *summa cum laude*** in Computational Linguistics / Phonet
 
 My professional experience spans clinical-trial speech technology (Redenlab), ASR research (Telepathy Labs, Zurich), COVID-19 vocal biomarker diagnostics (VoiceMed, Luxembourg), forensic speaker verification (Centre for Forensic Phonetics and Acoustics), and enterprise IT (Tata Consultancy Services).
 
-I have been an invited speaker at the IAAM Summit and have appeared on Swiss national television (SRF Einstein) and radio explaining deepfake voice technology to the general public.
+I speak regularly on deepfake voice technology and its implications for security and society — most recently as an invited speaker at the Identity and Access Management Summits in Melbourne (2025) and Sydney (2026). I have also been an invited keynote speaker at the International Virtual Conference on Artificial Intelligence and Statistics (IVCAIS 2021), an invited expert in an international technology-transfer programme between the University of Zurich, Sweden and the National Institute of Informatics (NII), Japan, and a guest on Swiss national television (SRF *Einstein*) and radio explaining deepfake voice technology to a general audience.
 
 ## Expertise
 

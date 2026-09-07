@@ -112,6 +112,18 @@ AI research and innovation leader working at the intersection of artificial inte
 
 ---
 
+## Awards & Achievements
+
+* **Forschungskredit Candoc Research Grant** — University of Zurich (Ph.D. funding)
+* **Ph.D. awarded *summa cum laude*** — University of Zurich
+* **Invited Speaker** — Identity and Access Management Summits, Melbourne (2025) and Sydney (2026), on defending against deepfake voice threats
+* **Invited Keynote Speaker** — International Virtual Conference on Artificial Intelligence and Statistics (IVCAIS 2021)
+* **Invited Expert** — international technology transfer between the University of Zurich, Sweden and the National Institute of Informatics (NII), Japan
+* **Swiss national television** — guest on SRF *Einstein* demonstrating deepfake voice technology
+* **Swiss national radio** — guest speaker on SRF Radio on deepfake voice technology
+
+---
+
 ## Patents & Certifications
 
 * **Patent:** CODE 360 — Advanced Color Coding Technique for Object Identification and Tracking (3112/CHE/2010 A)
