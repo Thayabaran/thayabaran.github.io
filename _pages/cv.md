@@ -114,7 +114,7 @@ AI research and innovation leader working at the intersection of artificial inte
 
 ## Grants & Funded Research
 
-* **MS Australia** — *AI-assisted analysis of communication in MS using large language models*, Grant 24-IGR2-0321
+* **MS Australia** — *AI-assisted analysis of communication in MS using large language models*, Grant 24-IGR2-0321 (2025)
 * Collaborator on research programs funded by the **NHMRC**, **MRFF** and **ARC**
 * **Forschungskredit Candoc Scholarship** — University of Zurich (Ph.D.)
 * **Swiss National Science Foundation (SNSF)** — Ph.D. research funding

@@ -75,9 +75,9 @@ I also work closely with clinicians, academics, pharmaceutical researchers and t
 
 I contribute to the development and leadership of collaborative research programs spanning academia, healthcare and industry. My work includes identifying new research opportunities, developing AI and digital biomarker methodologies for competitive grant applications, establishing multidisciplinary collaborations, and translating grant-funded research into reusable scientific capabilities.
 
-**Current funded research**
+**Funded research**
 
-- **MS Australia** — *AI-assisted analysis of communication in MS using large language models* (Grant 24-IGR2-0321). Applying large language models to detect communication change in people with multiple sclerosis.
+- **MS Australia** — *AI-assisted analysis of communication in MS using large language models* (Grant 24-IGR2-0321, 2025). Applying large language models to detect communication change in people with multiple sclerosis.
 
 I also collaborate on research programs funded by the **NHMRC**, **MRFF** and **ARC**.
 
@@ -101,4 +101,4 @@ I speak regularly on deepfake voice technology and its implications for security
 
 ---
 
-Full publication list on [Google Scholar](https://scholar.google.com/citations?user=bD7qkMkAAAAJ&hl=en).
+**Profiles:** [Google Scholar](https://scholar.google.com/citations?user=bD7qkMkAAAAJ&hl=en) · [ORCID](https://orcid.org/0000-0002-7721-2699) · [University of Melbourne — Find an Expert](https://findanexpert.unimelb.edu.au/profile/1027702-thayabaran-kathiresan) · [Redenlab](https://redenlab.com/people/thayabaran-kathiresan-phd/)
