@@ -11,7 +11,7 @@ redirect_from:
 
 <ul class="roles">
   <li><span>Senior Director of Speech Analytics, <a href="https://redenlab.com/people/thayabaran-kathiresan-phd/">Redenlab</a></span><span class="fte">0.8 FTE</span></li>
-  <li><span>Senior Postdoctoral Fellow, <a href="https://findanexpert.unimelb.edu.au/profile/1027702-thayabaran-kathiresan">University of Melbourne</a></span><span class="fte">0.2 FTE</span></li>
+  <li><span>Senior Researcher (Level-B6), <a href="https://findanexpert.unimelb.edu.au/profile/1027702-thayabaran-kathiresan">University of Melbourne</a></span><span class="fte">0.2 FTE</span></li>
 </ul>
 
 <p class="statement">Leading the development and translation of artificial intelligence technologies for the clinically meaningful measurement of speech and communication.</p>
@@ -28,7 +28,7 @@ I lead multidisciplinary research programs involving speech foundation models, m
 
 My role also involves establishing research strategy, leading scientific collaborations, developing grant-funded research programs, mentoring scientists, and working with clinical, academic and industry partners to translate emerging AI research into robust and clinically meaningful capabilities.
 
-Alongside my industry role, I am a **Senior Postdoctoral Fellow at the University of Melbourne**, Department of Audiology and Speech Pathology, where I contribute to research at the intersection of artificial intelligence, speech science and clinical research and supervise graduate students. Clinically, my work focuses on speech and language analysis in neurological populations, including ataxia, Friedreich's ataxia, ALS, multiple sclerosis and dementia.
+Alongside my industry role, I am a **Senior Researcher (Level-B6) at the University of Melbourne**, Department of Audiology and Speech Pathology, where I contribute to research at the intersection of artificial intelligence, speech science and clinical research and supervise graduate students. Clinically, my work focuses on speech and language analysis in neurological populations, including ataxia, Friedreich's ataxia, ALS, multiple sclerosis and dementia.
 
 ## Research & Innovation
 

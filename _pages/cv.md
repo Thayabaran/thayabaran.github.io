@@ -33,7 +33,7 @@ AI research and innovation leader working at the intersection of artificial inte
   * Built an automatic quality-control pipeline for clinical speech recordings.
 
 **University of Melbourne** — Dept. of Audiology & Speech Pathology
-* Senior Postdoctoral Fellow *(May 2023 – Present, 0.2 FTE)*
+* Senior Researcher (Level-B6) *(May 2023 – Present, 0.2 FTE)*
   * Research on speech and language in progressive and acquired neurological conditions.
   * Supervision of honours and postgraduate research projects.
 
