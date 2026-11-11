@@ -3,7 +3,7 @@ title: "Sinewave vowel sounds: The role of vowel qualities, frequencies and harm
 collection: publications
 category: manuscripts
 permalink: /publication/2018-sinewave-vowels
-date: 2018-01-04
+date: 2018-03-01
 venue: 'Manuscript'
 citation: 'D. Maurer, H. Suter, T. Kathiresan, V. Dellwo (2018). "Sinewave vowel sounds."'
 ---

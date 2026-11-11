@@ -3,7 +3,7 @@ title: "Enhancing the objectivity of interactive formant estimation: introducing
 collection: publications
 category: conferences
 permalink: /publication/2017-formant-estimation
-date: 2017-01-01
+date: 2017-03-15
 venue: 'Conference on Electronic Speech Signal Processing, 130–137'
 citation: 'T. Kathiresan, D. Maurer, H. Suter, V. Dellwo (2017). "Enhancing the objectivity of interactive formant estimation." <i>ESSP 2017</i>, 130–137.'
 ---

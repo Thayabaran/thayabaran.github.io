@@ -3,7 +3,7 @@ title: "Formant pattern ambiguity of vowel sounds revisited in synthesis: Changi
 collection: publications
 category: conferences
 permalink: /publication/2017-formant-ambiguity-synthesis
-date: 2017-01-02
+date: 2017-05-01
 venue: 'The Journal of the Acoustical Society of America, 141(5_Supplement), 3469–3470'
 citation: 'D. Maurer, V. Dellwo, H. Suter, T. Kathiresan (2017). "Formant pattern ambiguity of vowel sounds revisited in synthesis." <i>JASA</i>, 141(5_Supplement).'
 ---
